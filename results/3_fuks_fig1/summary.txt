@@ -1,0 +1,4 @@
+swData vs models over E in [-6.0,4.0], p in [0,30.0] GeV:
+  exact fixed Coulomb, α=0.15                      median 2.55e-03, max 5.36e-03 (complex G)
+  our LS solver, Coulomb α=0.15                    median 2.55e-03, max 5.23e-03 (complex G)
+  JKT'92 running + NLO bracket, αs(mZ)=0.12        median 5.19e-01, max 1.80e+00 (complex G)

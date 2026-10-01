@@ -1,0 +1,26 @@
+JKTPotential(alpha_s(mZ)=0.125): Lambda_MSbar^(5)=289 MeV, C=-0.0106, q_cut=50 MeV, energy shift (JKT (20))=+5.707 GeV
+Gamma_t (JKT Eq. 8): m=120: 0.299, m=150: 0.807, m=180: 1.563
+optical theorem, max |Eq.7/Eq.12 - 1| over E in [-5,5]: 4.1e-05
+
+observable                            JKT (read)       ours    diff
+fig2 Re(-G)(0), m=120 E=-2.3               -6.30      -6.10   -3.2%
+fig2 Im(-G)(0), m=120 E=-2.3               20.60      20.53   -0.4%
+fig3 Re(-G)(0), m=120 E=0                   3.70       3.68   -0.6%
+fig3 Im(-G)(0), m=120 E=0                  -2.70      -2.98  +10.4%
+fig3 min Im(-G), m=120 E=0                 -7.20      -7.20   -0.0%
+fig3 max Re(-G), m=120 E=0                  6.50       6.53   +0.5%
+fig4a peak |pG|^2, E=-2.3               10800.00   10796.36   -0.0%
+fig4a peak |pG|^2, E=0                   4000.00    4040.61   +1.0%
+fig4a peak |pG|^2, E=2                   7050.00    7056.43   +0.1%
+fig4b peak |pG|^2, E=-2.7                2070.00    2037.64   -1.6%
+fig4b peak |pG|^2, E=0                   1490.00    1469.54   -1.4%
+fig4b peak |pG|^2, E=2                   2150.00    2126.94   -1.1%
+fig4c peak |pG|^2, E=-2.9                 740.00     718.91   -2.8%
+fig4c peak |pG|^2, E=0                    725.00     707.48   -2.4%
+fig4c peak |pG|^2, E=2                    930.00     908.67   -2.3%
+fig5 R peak (m=120)                         3.78       3.80   +0.4%
+fig5 E of R peak                           -2.33      -2.32   +0.01
+fig5 R min (1S-2S)                          0.66       0.65   -1.8%
+fig5 R 2S bump                              1.23       1.23   +0.3%
+fig5 R(E=0)                                 1.09       1.09   +0.2%
+fig5 R(E=4)                                 1.18       1.17   -0.6%

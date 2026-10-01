@@ -1,0 +1,34 @@
+Test region: E in [-6.0, 4.0] GeV (step 0.5), p in [0.5, 29.5] GeV (step 1); m_t = 173, Gamma_t = 1.49
+Grid, JKT (23): n Gauss-Legendre points on [0,4], [4,16], [16,60], [60,173] GeV and t = 1/q on (0, 1/173)
+
+(a) Coulomb alpha = 0.15: |G/G_exact - 1| vs n (N = 5n)
+    n =  16 (N =  80):   median 5.3e-05   max 1.1e-02   (max E<=0: 2.8e-04, E>0: 1.1e-02)
+    n =  24 (N = 120):   median 1.4e-05   max 2.2e-03   (max E<=0: 8.5e-05, E>0: 2.2e-03)
+    n =  32 (N = 160):   median 5.9e-06   max 7.0e-04   (max E<=0: 3.7e-05, E>0: 7.0e-04)
+    n =  48 (N = 240):   median 1.8e-06   max 2.0e-04   (max E<=0: 1.1e-05, E>0: 2.0e-04)
+    n =  64 (N = 320):   median 7.5e-07   max 8.0e-05   (max E<=0: 4.6e-06, E>0: 8.0e-05)
+
+(b) JKT potential, alpha_s(mZ) = 0.12, q_cut = 50 MeV (energy shift from JKT (20): +5.678 GeV): |G_n/G_96 - 1|
+    n =  16 (N =  80):   median 6.5e-04   max 8.9e-02   (max E<=0: 5.7e-03, E>0: 8.9e-02)
+    n =  24 (N = 120):   median 2.4e-04   max 2.1e-02   (max E<=0: 2.1e-03, E>0: 2.1e-02)
+    n =  32 (N = 160):   median 1.2e-04   max 8.9e-03   (max E<=0: 7.7e-04, E>0: 8.9e-03)
+    n =  48 (N = 240):   median 5.4e-05   max 3.2e-03   (max E<=0: 5.8e-04, E>0: 3.2e-03)
+    n =  64 (N = 320):   median 2.5e-05   max 1.4e-03   (max E<=0: 2.2e-04, E>0: 1.4e-03)
+
+(c) q_cut dependence, n = 48: |G(q_cut)/G(50 MeV) - 1|  (JKT: independent below 200 MeV)
+    q_cut = 200 MeV (shift +1.568 GeV):   median 1.8e-03   max 4.9e-03   (max E<=0: 4.9e-03, E>0: 3.6e-03)
+    q_cut = 100 MeV (shift +2.953 GeV):   median 6.1e-04   max 1.6e-03   (max E<=0: 1.6e-03, E>0: 1.5e-03)
+    q_cut =  20 MeV (shift +13.818 GeV):   median 3.6e-04   max 9.9e-04   (max E<=0: 9.9e-04, E>0: 7.6e-04)
+    q_cut =  10 MeV (shift +27.372 GeV):   median 4.8e-04   max 1.3e-03   (max E<=0: 1.3e-03, E>0: 1.0e-03)
+
+(d) JKT (22) A(p) on the auxiliary rule vs adaptive quadrature, p = 0.03..80 GeV, E = -3..4 GeV:
+    Coulomb alpha=0.15               max rel. difference 1.6e-10
+    JKT alpha_mZ=0.12 q_cut=50 MeV   max rel. difference 5.7e-06
+
+(e) CoulombExact
+    alpha -> 0 vs G0 (JKT (6) / Fuks (11)): max rel. difference 6.2e-10
+    G_coulomb_vec vs G_coulomb (adaptive): max rel. difference 1.7e-05
+
+(f) grid choice, m_t = 120, Gamma_t = 0.299 (JKT Fig. 4a), alpha_s(mZ) = 0.125: peak of |p G|^2 at E = 2 GeV vs n
+    JKT (0, a1, a2)   n = 48, 96, 160:  9272, 7680, 7219   (JKT figure: ~7050)
+    default (+4, 60)  n = 48, 96, 160:  7065, 7044, 7036   (JKT figure: ~7050)

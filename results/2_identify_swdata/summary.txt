@@ -1,0 +1,35 @@
+swData: E in [-20,20] GeV (dE 0.1 below -5, 0.02 above), p in [0.01,99.76] GeV (dp 0.25)
+
+H1  exact fixed-alpha Coulomb, alpha, m_t, Gamma_t, dE free (complex residual)
+    Fig. 1 window E[-6,4], p<30: alpha=0.15000 (C_F*alpha=0.20000), m_t=172.96, Gamma_t=1.4907, dE=-3.4 MeV, rms 1.3e-03
+    full table, E>5 on-shell ridge excluded: alpha=0.15004 (C_F*alpha=0.20005), m_t=172.87, Gamma_t=1.4905, dE=-1.9 MeV, rms 1.3e-03
+    swData's own accuracy on the on-shell ridge p = sqrt(m_t E) (vs exact, alpha=0.15): E=5.0: 0.7%, E=10.0: 2.9%, E=15.0: 7.9%, E=19.9: 14.5%
+
+Comparison on E in [-6,4], p in [0,30] GeV: rms |swData/model - 1| (complex), rms log10 of |G|^2 ratio
+    H1 Coulomb alpha=0.15                  0.003   0.002 dex
+    H1 Coulomb alpha=0.12                  0.502   0.243 dex
+    H2 Coulomb alpha=0.12 + NLO bracket     0.403   0.199 dex
+    H3-tree: JKT'92 running potential, tree level (Fuks p.3 text):
+        alpha_s(mZ)   JKT-normalized        best free dE
+        0.09         0.617  0.343 dex    dE=+0.26 GeV: 0.577  0.342 dex
+        0.10         0.419  0.270 dex    dE=-0.02 GeV: 0.418  0.269 dex
+        0.11         0.379  0.239 dex    dE=-0.34 GeV: 0.275  0.196 dex
+        0.12         0.551  0.282 dex    dE=-0.71 GeV: 0.170  0.129 dex
+        0.13         0.844  0.387 dex    dE=-1.15 GeV: 0.172  0.101 dex
+        0.14         1.236  0.529 dex    dE=-1.71 GeV: 0.268  0.158 dex
+        0.15         1.811  0.695 dex    dE=-2.41 GeV: 0.385  0.268 dex
+        0.16         2.950  0.882 dex    dE=-3.00 GeV: 0.535  0.368 dex  (at the -3 GeV scan limit)
+    H3-NLO:  JKT'92 running potential, NLO bracket (JKT (13) as printed):
+        alpha_s(mZ)   JKT-normalized        best free dE
+        0.09         0.548  0.318 dex    dE=+0.18 GeV: 0.528  0.320 dex
+        0.10         0.377  0.251 dex    dE=-0.13 GeV: 0.362  0.241 dex
+        0.11         0.433  0.248 dex    dE=-0.49 GeV: 0.219  0.164 dex
+        0.12         0.689  0.329 dex    dE=-0.93 GeV: 0.153  0.105 dex
+        0.13         1.059  0.467 dex    dE=-1.47 GeV: 0.225  0.127 dex
+        0.14         1.585  0.638 dex    dE=-2.17 GeV: 0.349  0.231 dex
+        0.15         2.527  0.832 dex    dE=-3.00 GeV: 0.481  0.365 dex  (at the -3 GeV scan limit)
+        0.16         6.396  1.048 dex    dE=-3.00 GeV: 1.044  0.467 dex  (at the -3 GeV scan limit)
+
+alpha_s(mZ)=0.12 runs to 0.15 at ~23 GeV (1-loop) / ~25 GeV (2-loop), near the top Bohr momentum
+C_F alpha m_t/2 ~ 17 GeV -- a plausible origin of the 0.15, not stated anywhere by the authors.
+(Fuks Eq. 23 and text: with a Coulomb approximation, 1/a0 ~ 20 GeV and alpha_s(1/a0) ~ 0.17.)
