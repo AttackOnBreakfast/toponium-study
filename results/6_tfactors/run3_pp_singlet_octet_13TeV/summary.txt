@@ -1,0 +1,62 @@
+STAGE 6, run3_pp_singlet_octet_13TeV: pp -> tt, gg singlet x |G1/G0|^2, octet (gg octet, qqbar) x |G8/G0|^2; toponium T-factors at 13 TeV, T = sigma_with / sigma_without per bin
+process: p p > t t~ > b e+ ve b~ mu- vm~; full colour
+WITH: gg |M|^2 -> |M|^2 + (|G/G0|^2 - 1)|M_1|^2 (Fuks (16), singlet (19)-(20)) for W <= 350, p* <= 50 GeV;
+G from our JKT solver with CT25NNLO's alpha_s(Q); MadGraph LO, CT25NNLO, m_t = 173, Gamma_t = 1.49
+
+without : 10000000 events in 10 runs, sigma = 5.12292 pb
+            sm_13TeV_s1301.npz                 seed  1301  sigma 5.12348 pb
+            sm_13TeV_s1302.npz                 seed  1302  sigma 5.11961 pb
+            sm_13TeV_s1303.npz                 seed  1303  sigma 5.12243 pb
+            sm_13TeV_s1304.npz                 seed  1304  sigma 5.12423 pb
+            sm_13TeV_s1305.npz                 seed  1305  sigma 5.12341 pb
+            sm_13TeV_s1306.npz                 seed  1306  sigma 5.12192 pb
+            sm_13TeV_s1307.npz                 seed  1307  sigma 5.12603 pb
+            sm_13TeV_s1308.npz                 seed  1308  sigma 5.12374 pb
+            sm_13TeV_s1309.npz                 seed  1309  sigma 5.12064 pb
+            sm_13TeV_s1310.npz                 seed  1310  sigma 5.1237 pb
+with    : 10000000 events in 10 runs, sigma = 5.1633 pb
+            with18_13TeV_s6301.npz             seed  6301  sigma 5.16492 pb
+            with18_13TeV_s6302.npz             seed  6302  sigma 5.16389 pb
+            with18_13TeV_s6303.npz             seed  6303  sigma 5.16295 pb
+            with18_13TeV_s6304.npz             seed  6304  sigma 5.16519 pb
+            with18_13TeV_s6305.npz             seed  6305  sigma 5.16385 pb
+            with18_13TeV_s6306.npz             seed  6306  sigma 5.16302 pb
+            with18_13TeV_s6307.npz             seed  6307  sigma 5.16502 pb
+            with18_13TeV_s6308.npz             seed  6308  sigma 5.15996 pb
+            with18_13TeV_s6309.npz             seed  6309  sigma 5.16192 pb
+            with18_13TeV_s6310.npz             seed  6310  sigma 5.16224 pb
+total sigma_with / sigma_without = 1.00788
+
+m_ttbar_345-1600: first bin T = 1.01910 +- 0.00102; max |T - 1| = 0.0191
+pT_top_0-500: first bin T = 1.03626 +- 0.00100; max |T - 1| = 0.0363
+abs_y_top_0-2.5: first bin T = 1.00855 +- 0.00098; max |T - 1| = 0.0086
+pT_top_0-600: first bin T = 1.02312 +- 0.00078; max |T - 1| = 0.0231
+abs_y_top_x_pT_top: first bin T = 1.02612 +- 0.00176; max |T - 1| = 0.0261
+abs_y_ttbar_0-2.4: first bin T = 1.01031 +- 0.00156; max |T - 1| = 0.0117
+y_ttbar_-2.6-2.6: first bin T = 1.01161 +- 0.00177; max |T - 1| = 0.0116
+m_ttbar_250-3500: first bin T = 1.03871 +- 0.00103; max |T - 1| = 0.0387
+m_ttbar_325-2000: first bin T = 1.03877 +- 0.00103; max |T - 1| = 0.0388
+abs_y_ttbar_0-2.5: first bin T = 1.00744 +- 0.00108; max |T - 1| = 0.0097
+abs_y_boost_0-2.5: first bin T = 1.00760 +- 0.00108; max |T - 1| = 0.0107
+HT_ttbar_0-2000: first bin T = 1.06013 +- 0.00132; max |T - 1| = 0.0601
+-> results/6_tfactors/run3_pp_singlet_octet_13TeV/tfactors_13TeV.csv, plots/ (12 figures + all_bins.png)
+
+COLOUR-OCTET EFFECT (run 3 - run 1, same WITHOUT sample)
+  sigma_with: singlet only (run 1) 5.17019 pb, singlet + octet (run 3) 5.1633 pb
+  toponium excess (singlet only): 0.04727 pb; octet change: -0.00690 +- 0.00077 pb = -14.6% of the toponium excess; total T 1.00923 -> 1.00788
+  effective octet fraction of the window rate (measured / [sum w (|G8/G0|^2 - 1)]): 0.838
+  estimate at alpha_s = 0.12: octet change -0.00578 pb = -12.2% of the toponium excess
+  estimate at alpha_s = 0.18: octet change -0.00819 pb = -17.3% of the toponium excess
+  m_ttbar_345-1600: first bin T 1.02474 -> 1.01910, Delta T = -0.00564 +- 0.00102
+  pT_top_0-500: first bin T 1.04257 -> 1.03626, Delta T = -0.00631 +- 0.00100
+  abs_y_top_0-2.5: first bin T 1.00869 -> 1.00855, Delta T = -0.00013 +- 0.00098
+  pT_top_0-600: first bin T 1.02696 -> 1.02312, Delta T = -0.00384 +- 0.00078
+  abs_y_top_x_pT_top: first bin T 1.02938 -> 1.02612, Delta T = -0.00326 +- 0.00175
+  abs_y_ttbar_0-2.4: first bin T 1.01193 -> 1.01031, Delta T = -0.00162 +- 0.00156
+  y_ttbar_-2.6-2.6: first bin T 1.01389 -> 1.01161, Delta T = -0.00228 +- 0.00177
+  m_ttbar_250-3500: first bin T 1.04567 -> 1.03871, Delta T = -0.00696 +- 0.00103
+  m_ttbar_325-2000: first bin T 1.04572 -> 1.03877, Delta T = -0.00696 +- 0.00103
+  abs_y_ttbar_0-2.5: first bin T 1.00911 -> 1.00744, Delta T = -0.00166 +- 0.00108
+  abs_y_boost_0-2.5: first bin T 1.00901 -> 1.00760, Delta T = -0.00141 +- 0.00108
+  HT_ttbar_0-2000: first bin T 1.07020 -> 1.06013, Delta T = -0.01007 +- 0.00131
+  -> results/6_tfactors/run3_pp_singlet_octet_13TeV/octet_effect.csv, plots/compare_*.png

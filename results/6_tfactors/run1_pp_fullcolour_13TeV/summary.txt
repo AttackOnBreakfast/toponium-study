@@ -1,0 +1,42 @@
+STAGE 6, run1_pp_fullcolour_13TeV: pp -> tt, gg singlet + octet and qqbar; toponium T-factors at 13 TeV, T = sigma_with / sigma_without per bin
+process: p p > t t~ > b e+ ve b~ mu- vm~; full colour
+WITH: gg |M|^2 -> |M|^2 + (|G/G0|^2 - 1)|M_1|^2 (Fuks (16), singlet (19)-(20)) for W <= 350, p* <= 50 GeV;
+G from our JKT solver with CT25NNLO's alpha_s(Q); MadGraph LO, CT25NNLO, m_t = 173, Gamma_t = 1.49
+
+without : 10000000 events in 10 runs, sigma = 5.12292 pb
+            sm_13TeV_s1301.npz                 seed  1301  sigma 5.12348 pb
+            sm_13TeV_s1302.npz                 seed  1302  sigma 5.11961 pb
+            sm_13TeV_s1303.npz                 seed  1303  sigma 5.12243 pb
+            sm_13TeV_s1304.npz                 seed  1304  sigma 5.12423 pb
+            sm_13TeV_s1305.npz                 seed  1305  sigma 5.12341 pb
+            sm_13TeV_s1306.npz                 seed  1306  sigma 5.12192 pb
+            sm_13TeV_s1307.npz                 seed  1307  sigma 5.12603 pb
+            sm_13TeV_s1308.npz                 seed  1308  sigma 5.12374 pb
+            sm_13TeV_s1309.npz                 seed  1309  sigma 5.12064 pb
+            sm_13TeV_s1310.npz                 seed  1310  sigma 5.1237 pb
+with    : 10000000 events in 10 runs, sigma = 5.17019 pb
+            topo_13TeV_ct25as_s2301.npz        seed  2301  sigma 5.16909 pb
+            topo_13TeV_ct25as_s2302.npz        seed  2302  sigma 5.17313 pb
+            topo_13TeV_ct25as_s2303.npz        seed  2303  sigma 5.16626 pb
+            topo_13TeV_ct25as_s2304.npz        seed  2304  sigma 5.17027 pb
+            topo_13TeV_ct25as_s2305.npz        seed  2305  sigma 5.16962 pb
+            topo_13TeV_ct25as_s2306.npz        seed  2306  sigma 5.1705 pb
+            topo_13TeV_ct25as_s2307.npz        seed  2307  sigma 5.17035 pb
+            topo_13TeV_ct25as_s2308.npz        seed  2308  sigma 5.17199 pb
+            topo_13TeV_ct25as_s2309.npz        seed  2309  sigma 5.17033 pb
+            topo_13TeV_ct25as_s2310.npz        seed  2310  sigma 5.1704 pb
+total sigma_with / sigma_without = 1.00923
+
+m_ttbar_345-1600: first bin T = 1.02474 +- 0.00103; max |T - 1| = 0.0247
+pT_top_0-500: first bin T = 1.04257 +- 0.00101; max |T - 1| = 0.0426
+abs_y_top_0-2.5: first bin T = 1.00869 +- 0.00098; max |T - 1| = 0.0103
+pT_top_0-600: first bin T = 1.02696 +- 0.00079; max |T - 1| = 0.0270
+abs_y_top_x_pT_top: first bin T = 1.02938 +- 0.00177; max |T - 1| = 0.0297
+abs_y_ttbar_0-2.4: first bin T = 1.01193 +- 0.00156; max |T - 1| = 0.0119
+y_ttbar_-2.6-2.6: first bin T = 1.01389 +- 0.00178; max |T - 1| = 0.0139
+m_ttbar_250-3500: first bin T = 1.04567 +- 0.00104; max |T - 1| = 0.0457
+m_ttbar_325-2000: first bin T = 1.04572 +- 0.00104; max |T - 1| = 0.0457
+abs_y_ttbar_0-2.5: first bin T = 1.00911 +- 0.00108; max |T - 1| = 0.0112
+abs_y_boost_0-2.5: first bin T = 1.00901 +- 0.00108; max |T - 1| = 0.0120
+HT_ttbar_0-2000: first bin T = 1.07020 +- 0.00133; max |T - 1| = 0.0702
+-> results/6_tfactors/run1_pp_fullcolour_13TeV/tfactors_13TeV.csv, plots/ (12 figures + all_bins.png)

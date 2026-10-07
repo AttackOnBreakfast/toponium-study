@@ -432,6 +432,204 @@ $p^*\le50$~GeV: colour octet, singlet without re-weighting, and singlet re-weigh
 \end{figure}
 
 %==========================================================================================
+\section{Toponium in $pp\to t\bar t$ events: T-factors at 13~TeV}
+\label{sec:tfactors}
+
+The Green's function of Secs.~\ref{sec:potential}--\ref{sec:solver} is put into MadGraph's matrix element, so that whole event
+samples contain toponium, and the effect is quoted per bin of measured $t\bar t$ distributions as a \emph{T-factor},
+$$
+T=\frac{\sigma_\mathrm{with\ toponium}(\text{bin})}{\sigma_\mathrm{without}(\text{bin})}.
+$$
+\fn{6\_tfactors.py}
+
+\subsection{Colour: which part of $pp\to t\bar t$ can form toponium}
+At LO, $pp\to t\bar t$ has two channels.
+\begin{itemize}
+  \item $q\bar q\to t\bar t$: one diagram, $q\bar q\to g^*\to t\bar t$. A single gluon is a colour octet, so the pair it produces is
+        an octet. In the amplitude the colour factor is $(T^a)_{ij}(T^a)_{kl}$; projecting $t_k\bar t_l$ on the singlet
+        ($\delta_{kl}/\sqrt3$) gives $\mathrm{Tr}\,T^a=0$. Singlet $q\bar q$-produced pairs appear only via $\gamma^*/Z$ (not in our pure-QCD
+        samples) or beyond LO.
+  \item $gg\to t\bar t$: three diagrams, singlet \emph{and} octet ($8\otimes8\ni1$). MadGraph writes the amplitude in two colour
+        flows, $\mathcal M=J_1(T^aT^b)_{kl}+J_2(T^bT^a)_{kl}$, and $|\mathcal M|^2=\sum_{ij}J_i^*\,C_{ij}\,J_j$ with
+        $$
+        C=\tfrac13\begin{pmatrix}16&-2\\-2&16\end{pmatrix}
+         =\underbrace{\tfrac23\begin{pmatrix}1&1\\1&1\end{pmatrix}}_{C_1\ \text{(singlet, \Fuks\ (19)--(20))}}
+         +\underbrace{\tfrac13\begin{pmatrix}14&-4\\-4&14\end{pmatrix}}_{C_8\ \text{(octet)}},
+        \qquad |\mathcal M|^2=|\mathcal M_1|^2+|\mathcal M_8|^2,
+        $$
+        with no singlet--octet interference. Near threshold the singlet is about $2/7$ of $gg$.
+\end{itemize}
+Only the singlet feels an attractive potential, $V=-C_F\alpha_s/r$, which is the one $G$ is computed for. The octet potential is
+repulsive, $+\alpha_s/(6r)$: no bound state, a small suppression near threshold, which we (like \Fuks) neglect. Toponium therefore
+enters \emph{only} through the $gg$ colour singlet, in the S-wave ($^1S_0$) state that our S-wave $G$ describes.
+
+\subsection{The matrix-element modification}
+Per event, $E=W-2m_t$ with $W=m_{t\bar t}$, and $p^*$ is the top momentum in the $t\bar t$ rest frame (\Fuks\ (21)). In the window
+$W\le350$~GeV, $p^*\le50$~GeV (and $E\ge-20$~GeV, the range of our table) the $gg$ matrix element is changed; outside it, and for
+$q\bar q$, nothing changes:
+$$
+gg:\quad |\mathcal M|^2=|\mathcal M_1|^2+|\mathcal M_8|^2\ \longrightarrow\ |\mathcal M_8|^2+\left|\frac{G(E,p^*)}{G_0(E,p^*)}\right|^2|\mathcal M_1|^2
+=|\mathcal M|^2+\left(\left|\frac{G}{G_0}\right|^2-1\right)|\mathcal M_1|^2 .
+$$
+$|G/G_0|^2$ is read in the Fortran from a table of our $G$ (bilinear interpolation, a module modelled on \Fuks's
+\code{GREENDATA}/\code{CALCGREEN}), and $|\mathcal M_1|^2$ is computed alongside $|\mathcal M|^2$ with $C_1$.
+
+\paragraph{Relation to \Fuks\ (15)--(16).} \Fuks\ generate $gg\to t\bar t$ with the singlet colour matrix only. Their (15),
+$|\mathcal M_1|^2|G/G_0|^2$, is toponium alone; (16), $|\mathcal M_1|^2(|G/G_0|^2-1)$, is what must be \emph{added} to an SM sample, the
+$-1$ removing the singlet part the SM sample already contains. Our ``with'' sample is that sum, SM $+$ (16), built into one matrix
+element: the octet term above is the octet of their SM sample, not extra physics, and the double counting is removed in the singlet
+only, as in \Fuks. Building it in keeps $|\mathcal M|^2\ge0$ ((16) alone is negative where $|G/G_0|<1$, which MadGraph cannot generate).
+Other differences: \Fuks\ use decay chains ($W$ near on-shell) and $\ell=e,\mu$; we generate $t\bar t\to b e^+\nu\,\bar b\mu^-\bar\nu$
+with the full $W$ propagators, and the branching ratio cancels in $T$.
+
+\subsection{$\alpha_s$: CTEQ's running versus \JKT\ (14)}
+$0.118$ is CT25NNLO's $\alpha_s(m_Z)$; its $\alpha_s(Q)$ runs, but differently from \JKT\ (14): CTEQ solve the renormalisation-group
+equation numerically at three loops with a variable number of flavours (thresholds at $m_c$, $m_b$) and tabulate it; (14) is a
+two-loop closed form with fixed $n_F=5$. Both agree at $m_Z$ by construction:
+
+\begin{center}\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+$Q$ [GeV] & 5 & 10 & 25 & 91.19\\
+\midrule
+CT25NNLO (LHAPDF) & 0.21257 & 0.17815 & 0.14688 & 0.11800\\
+\JKT\ (14), two-loop, $\alphas(m_Z)=0.118$ & 0.21396 & 0.17864 & 0.14705 & 0.11800\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+MadGraph takes $\alpha_s(Q)$ for the matrix elements from the PDF. For one $\alpha_s$ everywhere, the potential (13) behind $G$
+uses CT25's $\alpha_s(Q)$ too, read from LHAPDF (it enters only above 5~GeV and through $C$). This changes $C$ from $-0.0320$ to
+$-0.0332$ and $|G/G_0|^2$ by at most $0.1\%$. Formally it combines three-loop running with the one-loop bracket of (13); the effect is
+far below the other approximations. \fn{JKTPotential(alpha\_fn=...)}
+
+\subsection{From events to T-factors}
+\begin{enumerate}
+  \item \emph{Generate.} Two samples of the same process, ``without'' and ``with'' toponium, 10 MadGraph runs of $10^6$ events each,
+        every run with its own seed; LO, CT25NNLO, $m_t=173$, $\Gt=1.49$~GeV, no generation cuts. The toponium effect is entirely in
+        \emph{which} events MadGraph generates (it unweights with the modified $|\mathcal M|^2$); no reweighting is done afterwards.
+  \item \emph{Reconstruct.} From each event's final state: top $=b+e^++\nu_e$ (PDG ids $5,-11,12$), antitop $=\bar b+\mu^-+\bar\nu_\mu$
+        ($-5,13,-14$). The tops are off-shell: $m(be^+\nu)$ has median $173.04$~GeV and 90\% of events within 169--179~GeV.
+  \item \emph{Observables.} From the summed four-momenta: $m_{t\bar t}$, $y_{t\bar t}$, $|y_{t\bar t}|$, $|y_t+y_{\bar t}|/2$,
+        $H_T=p_T^t+p_T^{\bar t}$, $p_T^t$, $|y_t|$ and the 2D $|y_t|\times p_T^t$, in all the requested binnings (12).
+  \item \emph{Count.} Every event weight equals the run's cross section; dividing by the total number of events,
+        $\sigma_\mathrm{bin}=\sum_{i\in\mathrm{bin}}w_i$ and its error is $\sqrt{\sum w_i^2}$.
+  \item \emph{Divide.} $T=\sigma_\mathrm{with}/\sigma_\mathrm{without}$ per bin; the bin widths cancel.
+\end{enumerate}
+
+\subsection{Results}
+Three runs at 13~TeV, 10M + 10M events each: run~1 is $pp\to t\bar t$ with full colour ($gg$ singlet and octet, and $q\bar q$); run~2 is
+$gg\to t\bar t$ in the colour singlet only (no octet, no $q\bar q$); run~3 is run~1 with the octet threshold effect added
+(Sec.~\ref{sec:octet}), sharing run~1's ``without'' sample. In runs 1 and 2 the toponium excess $\Delta\sigma$ is the same, as it must
+be, since only the $gg$ singlet is changed; the denominators differ. Run~3 adds the (negative) octet change.
+
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & run 1: $pp$, singlet & run 2: $gg$, singlet only & run 3: $pp$, singlet $+$ octet\\
+\midrule
+$\sigma_\mathrm{without}$, $\sigma_\mathrm{with}$ [pb] & 5.1229, 5.1702 & 0.9903, 1.0366 & 5.1229, 5.1633\\
+$\Delta\sigma$ [pb] & 0.0473 & 0.0463 & 0.0404\\
+total $T-1$ & $+0.92\%$ & $+4.68\%$ & $+0.79\%$\\
+$m_{t\bar t}\in[250,400]$~GeV & $+4.57\pm0.10\%$ & $+20.9\pm0.1\%$ & $+3.87\pm0.10\%$\\
+$m_{t\bar t}\in[345,400]$~GeV & $+2.47\pm0.10\%$ & $+11.2\pm0.1\%$ & $+1.91\pm0.10\%$\\
+$H_T\in[0,90]$~GeV & $+7.0\pm0.13\%$ & $+36.9\pm0.2\%$ & $+6.0\pm0.13\%$\\
+$p_T^t\in[0,60]$~GeV & $+4.26\pm0.10\%$ & $+22.2\pm0.1\%$ & $+3.63\pm0.10\%$\\
+$|y_{t\bar t}|$ bins & $\approx+0.9\%$, nearly flat & $+4.2\%$ to $+6.8\%$ & $\approx+0.75\%$, nearly flat\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The effect sits where the tops are slow: the lowest $m_{t\bar t}$ bin (which contains the whole window) and the lowest $H_T$ bin;
+higher $m_{t\bar t}$ and $H_T$ bins are unchanged within statistics. In rapidity it is spread over all bins, rising towards large $|y|$
+because the low-mass toponium pairs reach larger rapidities. The $m_{t\bar t}$ binning that starts at 345~GeV shows about half the
+effect of the one starting at 250 or 325~GeV: most of the toponium peak ($W\approx343$--345~GeV) lies below its first edge. For a $pp$
+measurement, run~3's T-factors (singlet and octet) are the most complete, run~1's are those of \Fuks's convention (singlet only);
+run~2 isolates the channel in which toponium forms. Per-bin values: \code{results/6\_tfactors/<run>/tfactors\_13TeV.csv}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{results/6_tfactors/run1_pp_fullcolour_13TeV/plots/all_bins.png}
+\caption{Run 1 ($pp\to t\bar t$, full colour): $T=\sigma_\mathrm{with}/\sigma_\mathrm{without}$ per bin for all requested binnings
+(the 2D $|y_t|\times p_T^t$ binning in slices of $|y_t|$); error bars are MC
+statistics of the two independent samples.}
+\label{fig:tf1}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{results/6_tfactors/run2_gg_singlet_13TeV/plots/all_bins.png}
+\caption{Run 2 ($gg\to t\bar t$, colour singlet only): $T$ per bin for the same binnings. The toponium excess is the same as in run 1;
+the smaller denominator makes the relative effect about five times larger.}
+\label{fig:tf2}
+\end{figure}
+
+\subsection{The colour-octet threshold effect}
+\label{sec:octet}
+The octet ($gg$ octet and all of $q\bar q$) also has a Coulomb interaction near threshold, but a \emph{repulsive} one,
+$V_8=+\alpha_s/(6r)$ (colour factor $C_F-C_A/2=-1/6$ instead of $C_F=4/3$): no bound states, and a suppression of the rate near
+threshold. \Fuks, and runs 1--2, neglect it. To measure it, run~3 repeats run~1's ``with'' sample (10M events, seeds 6301--6310)
+with, in the same window, both colour states changed:
+$$
+gg:\ |\mathcal M|^2\to\left|\frac{G_1}{G_0}\right|^2|\mathcal M_1|^2+\left|\frac{G_8}{G_0}\right|^2|\mathcal M_8|^2,\qquad
+q\bar q:\ |\mathcal M|^2\to\left|\frac{G_8}{G_0}\right|^2|\mathcal M|^2 .
+$$
+$G_8$ is the exact Coulomb solution (Sec.~\ref{sec:coulomb}) for the repulsive potential, with $\alpha_s=0.147$, CT25NNLO's
+$\alpha_s$ at 25~GeV (the Bohr scale); it agrees with our solver to $2\times10^{-6}$ and gives $|G_8/G_0|^2\approx0.67$--$0.82$ in the
+window. The denominator is run~1's ``without'' sample, so $\Delta T=T_\mathrm{run\,3}-T_\mathrm{run\,1}$ isolates the octet. (A check
+with $|G_8/G_0|^2$ set to 10 raised $\sigma$ by the predicted $+0.26$~pb, so the octet code acts on both $gg$ and $q\bar q$.)
+
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & singlet only (run 1) & singlet $+$ octet (run 3) & $\Delta T$\\
+\midrule
+total & 1.00923 & 1.00788 & $-0.0014$\\
+$m_{t\bar t}\in[250,400]$~GeV & 1.0457 & 1.0387 & $-0.0070\pm0.0010$\\
+$H_T\in[0,90]$~GeV & 1.0702 & 1.0601 & $-0.0101\pm0.0013$\\
+$p_T^t\in[0,60]$~GeV & 1.0426 & 1.0363 & $-0.0063\pm0.0010$\\
+rapidity bins & $\approx1.009$ & $\approx1.007$--1.008 & $\approx-0.001$ to $-0.002$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The octet changes the cross section by $\Delta\sigma_8=-0.0069\pm0.0008$~pb, i.e. $-14.6\%$ of the singlet toponium excess
+($0.0473$~pb); rescaling with $|G_8/G_0|^2$ on the events in the window gives $-12\%$ ($\alpha_s=0.12$) to $-17\%$ ($\alpha_s=0.18$).
+About 84\% of the threshold-window rate is octet. So: in absolute terms the octet changes every T-factor by less than 1\% (at most
+$-1.0\%$, in the lowest $H_T$ bin), but relative to the toponium signal it is a $\sim15\%$ effect, and it always \emph{reduces} the
+signal. Neglecting it is justified only at the level of a $\sim15\%$ uncertainty on $T-1$; including it (run 3) is the more complete
+description. Comparison plots: \code{results/6\_tfactors/run3\_pp\_singlet\_octet\_13TeV/plots/compare\_*.png}
+(Fig.~\ref{fig:octet}); run~3's own T-factors: Fig.~\ref{fig:tf3}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{results/6_tfactors/run3_pp_singlet_octet_13TeV/plots/compare_all.png}
+\caption{$T$ per bin with toponium in the colour singlet only (run 1, orange) and with the singlet and the repulsive octet
+(run 3, purple), for all binnings; same ``without'' sample, error bars are MC statistics. The octet lowers $T$ only where toponium
+acts (lowest $m_{t\bar t}$, $p_T^t$, $H_T$ bins, and slightly in rapidity), by $\sim15\%$ of $T-1$.}
+\label{fig:octet}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth,height=0.86\textheight,keepaspectratio]{results/6_tfactors/run3_pp_singlet_octet_13TeV/plots/all_bins.png}
+\caption{Run 3 ($pp\to t\bar t$, singlet $\times|G_1/G_0|^2$ and octet $\times|G_8/G_0|^2$): $T$ per bin for all binnings.}
+\label{fig:tf3}
+\end{figure}
+
+\paragraph{Caveats.}
+\begin{enumerate}
+  \item LO matrix elements. $T$ is a ratio meant to multiply higher-order $t\bar t$ predictions, assuming higher-order corrections
+        largely cancel between numerator and denominator.
+  \item The window is a hard cut ($W\le350$~GeV, $p^*\le50$~GeV): the factor is switched off, not faded to 1, outside it.
+  \item Runs 1--2 neglect the octet's repulsive Coulomb interaction (as \Fuks\ do); run 3 measures it: $-15\%$ of the toponium
+        effect, below 1\% in every $T$ (Sec.~\ref{sec:octet}).
+  \item The two samples are independent: in bins where nothing changes, $T$ scatters around 1 by its statistical error (a few \% in
+        the sparse high-$m_{t\bar t}$ bins), although in bins lying entirely above $m_{t\bar t}=350$~GeV the true value is exactly
+        $T=1$, and should be quoted as such.
+\end{enumerate}
+
+%==========================================================================================
 \section{Where I fill in or depart from JKT}
 \label{sec:departures}
 \begin{enumerate}
@@ -439,6 +637,7 @@ $p^*\le50$~GeV: colour octet, singlet without re-weighting, and singlet re-weigh
   \item Grid: JKT's subintervals split once more, at 4 and 60~GeV (Step~5).
   \item $\As(p)$ on a graded auxiliary Gauss--Legendre rule (Step~4); JKT only say ``numerical integration''.
   \item $K$ between the nodes by cubic-spline interpolation (Step~7); JKT do not say how they evaluate off the grid.
+  \item In the T-factor runs (Sec.~\ref{sec:tfactors}) only, $\alpha_s(Q)$ in (13) is CT25NNLO's (LHAPDF), not (14).
 \end{enumerate}
 Everything else (the potential, the cut and its normalisation, the subtraction, the linear system) is \JKT\ as printed.
 
@@ -448,8 +647,8 @@ Everything else (the potential, the cut and its normalisation, the subtraction, 
 \label{sec:files}
 \begingroup\sloppy
 
-Everything lives flat in \code{toponium\_study/}. \code{toponium.py} is the only library; \code{0\_}\ldots\code{5\_*.py} are the
-six scripts you run (\code{uv run python 0\_solver\_checks.py}, and so on), each writing \code{results/<stage>/summary.txt} and
+Everything lives flat in \code{toponium\_study/}. \code{toponium.py} is the only library; \code{0\_}\ldots\code{6\_*.py} are the
+seven scripts you run (\code{uv run python 0\_solver\_checks.py}, and so on), each writing \code{results/<stage>/summary.txt} and
 figures. Every class opens with an ``EQUATION MAP'' listing which paper equation each method implements.
 
 \subsection*{\code{toponium.py}: six classes, top to bottom}
@@ -466,7 +665,7 @@ figures. Every class opens with an ``EQUATION MAP'' listing which paper equation
   $G$ from any of the above.
 \end{description}
 
-\subsection*{The six stage scripts}
+\subsection*{The seven stage scripts}
 {\small\noindent\begin{tabularx}{\linewidth}{@{}lL@{}}
 \toprule
 script & what it does \\
@@ -479,6 +678,10 @@ script & what it does \\
   \code{\_cache\_singlet330.npz}: \textbf{the only copy of the events, never delete them}\\
 \code{5\_comparison\_tables.py} & CSV tables for comparing with an independent solver (colour singlet): $\Lambda$, $C$, $C_1$,
   $\tilde V_0$ per setting; $\alpha_s(Q^2)$ and each piece of the potential vs $Q^2$; $G$ on $(E,p)$ grids\\
+\code{6\_tfactors.py} & toponium T-factors at 13~TeV: LO MadGraph $pp\to t\bar t\to b e^+\nu\,\bar b\mu^-\bar\nu$ without, and with the
+  $gg$ matrix element changed to $|M|^2+(|G/G_0|^2-1)|M_1|^2$ (\Fuks\ (16), singlet (19)--(20)). Here (13) uses CT25NNLO's own
+  $\alpha_s(Q)$ (from LHAPDF) instead of (14), the same $\alpha_s$ MadGraph uses. Runs: \code{run1\_pp\_fullcolour\_13TeV},
+  \code{run2\_gg\_singlet\_13TeV}, \code{run3\_pp\_singlet\_octet\_13TeV}\\
 \bottomrule
 \end{tabularx}}
 

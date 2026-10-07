@@ -72,6 +72,7 @@ class JKTPotential:
       (14)  alpha_MS(Q^2) = 4pi / [b0 ln(Q^2/L^2) + (b1/b0) ln ln(Q^2/L^2)]    alpha_2loop
             Lambda such that (14) gives alpha_s(mZ)                           lambda_msbar_2loop
       (13)  V_pert(Q^2) = -(16pi/3) alpha/Q^2 [1 + (31/3 - 10nF/9) alpha/4pi] V_pert  (= Fuks (12))
+            alpha from (14), or from an external alpha_s(Q^2) (alpha_fn; Stage 6: CT25NNLO's)
       (15)  V = V_pert above 5 GeV; -(4/3)(48pi^2/27)(1/p^2)[1/ln(1+p^2/L_R^2) + C]
             below, C from continuity                                       V_ir, continuity_constant_C, V_jkt
       (19)  V_cut = V above q_cut; -C1/(p^2+q_cut^2) + V0 d3(p) below       V_cut
@@ -92,24 +93,29 @@ class JKTPotential:
       C1 (continuity constant of (19)), alpha_mz, Lambda_R, p_match
 
     JKTPotential(alpha_mz=0.12)       the JKT potential, JKT's q_cut = 50 MeV
+    JKTPotential(alpha_fn=f)          the same with alpha(Q^2) = f(Q^2) in (13) instead of (14)
     JKTPotential.coulomb(alpha=0.15)  fixed-coupling Coulomb, same interface (no cut, no shift)
     """
 
     KAPPA = C_F * 48 * np.pi ** 2 / 27   # (4/3)(48 pi^2/27) in JKT (15)
 
-    def __init__(self, alpha_mz=0.12, q_cut=0.05, Lambda_R=0.4, p_match=5.0, nF=N_F, nlo_bracket=True):
+    def __init__(self, alpha_mz=0.12, q_cut=0.05, Lambda_R=0.4, p_match=5.0, nF=N_F, nlo_bracket=True,
+                 alpha_fn=None):
         """The full JKT potential: (13)-(15), cut at q_cut by (19) (JKT: 50 MeV), with the d3 term
-        of (19) fixed by (20) and applied as an energy shift."""
+        of (19) fixed by (20) and applied as an energy shift. alpha_fn(Q^2), if given, replaces (14)
+        in (13) (alpha_mz is then only a label)."""
 
         Lam = self.lambda_msbar_2loop(alpha_mz, nF=nF)
-        C = self.continuity_constant_C(Lam, Lambda_R, p_match, nF, nlo_bracket)
-        V = lambda p2: self.V_jkt(p2, Lam, Lambda_R, C, p_match, nF, nlo_bracket)
+        C = self.continuity_constant_C(Lam, Lambda_R, p_match, nF, nlo_bracket, alpha=alpha_fn)
+        V = lambda p2: self.V_jkt(p2, Lam, Lambda_R, C, p_match, nF, nlo_bracket, alpha=alpha_fn)
         self.V = lambda p2: self.V_cut(V, p2, q_cut)
         self.kinks = (q_cut, p_match)
         self.q_cut, self.Lam, self.C, self.C1 = q_cut, Lam, C, self.cut_constant_C1(V, q_cut)
         self.alpha_mz, self.Lambda_R, self.p_match = alpha_mz, Lambda_R, p_match
         self.coulomb_B = None
-        self.label = f"JKT alpha_mZ={alpha_mz} q_cut={q_cut * 1e3:.0f} MeV"
+        self.alpha_fn = alpha_fn
+        self.label = (f"JKT alpha_mZ={alpha_mz}" if alpha_fn is None else "JKT external alpha_s(Q)") + \
+            f" q_cut={q_cut * 1e3:.0f} MeV"
         self.shift = self.energy_shift(self.V, q_cut, self.kinks)
 
     @classmethod
@@ -153,11 +159,12 @@ class JKTPotential:
         return mZ * np.exp(-x / 2)
 
     @staticmethod
-    def V_pert(Q2, Lam, nF=N_F, nlo_bracket=True):
+    def V_pert(Q2, Lam, nF=N_F, nlo_bracket=True, alpha=None):
         """JKT (13):  V_pert(Q^2) = -(16 pi/3) alpha(Q^2)/Q^2 [1 + (31/3 - 10 nF/9) alpha(Q^2)/(4 pi)],
-        alpha from JKT (14). nlo_bracket=False drops the square bracket (tree level)."""
+        alpha from JKT (14), or alpha(Q^2) if a function is given. nlo_bracket=False drops the square
+        bracket (tree level)."""
 
-        a = JKTPotential.alpha_2loop(Q2, Lam, nF)
+        a = JKTPotential.alpha_2loop(Q2, Lam, nF) if alpha is None else alpha(Q2)
         bracket = 1 + (31 / 3 - 10 * nF / 9) * a / (4 * np.pi) if nlo_bracket else 1.0
         return -4 * np.pi * C_F * a / Q2 * bracket
 
@@ -169,20 +176,20 @@ class JKTPotential:
             return -JKTPotential.KAPPA / p2 * (1 / np.log1p(p2 / Lambda_R ** 2) + C)
 
     @staticmethod
-    def continuity_constant_C(Lam, Lambda_R, p_match=5.0, nF=N_F, nlo_bracket=True):
+    def continuity_constant_C(Lam, Lambda_R, p_match=5.0, nF=N_F, nlo_bracket=True, alpha=None):
         """JKT (15): C from continuity at p = p_match,  V_ir(p_match^2) = V_pert(p_match^2)."""
 
         Q2 = p_match ** 2
-        return (JKTPotential.V_pert(np.array(Q2), Lam, nF, nlo_bracket) * Q2 / (-JKTPotential.KAPPA)
+        return (JKTPotential.V_pert(np.array(Q2), Lam, nF, nlo_bracket, alpha) * Q2 / (-JKTPotential.KAPPA)
                 - 1 / np.log1p(Q2 / Lambda_R ** 2))
 
     @staticmethod
-    def V_jkt(p2, Lam, Lambda_R, C, p_match=5.0, nF=N_F, nlo_bracket=True):
+    def V_jkt(p2, Lam, Lambda_R, C, p_match=5.0, nF=N_F, nlo_bracket=True, alpha=None):
         """JKT (15): V_pert above p_match = 5 GeV, V_ir below."""
 
         p2 = np.asarray(p2, dtype=float)
         Q2m = p_match ** 2
-        return np.where(p2 >= Q2m, JKTPotential.V_pert(np.maximum(p2, Q2m), Lam, nF, nlo_bracket),
+        return np.where(p2 >= Q2m, JKTPotential.V_pert(np.maximum(p2, Q2m), Lam, nF, nlo_bracket, alpha),
                         JKTPotential.V_ir(np.minimum(p2, Q2m), Lambda_R, C))
 
     # ------------------------------------------------------------------ JKT Sec. 3: the cut

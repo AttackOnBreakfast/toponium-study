@@ -1,0 +1,15 @@
+alpha_s(Q) spline vs LHAPDF at 97 off-grid Q in [5.3, 9e4] GeV: max rel. difference 1.3e-08
+  alpha_s(      5 GeV): CT25NNLO 0.21257   JKT (14) two-loop at 0.118 0.21396
+  alpha_s(     10 GeV): CT25NNLO 0.17815   JKT (14) two-loop at 0.118 0.17864
+  alpha_s(     25 GeV): CT25NNLO 0.14688   JKT (14) two-loop at 0.118 0.14705
+  alpha_s(  91.19 GeV): CT25NNLO 0.11800   JKT (14) two-loop at 0.118 0.11800
+potential with CT25 alpha_s: C = -0.03316 (two-loop: -0.03201), shift = 5.6658 GeV (two-loop: 5.6678)
+G/G0 table written (40 s); |G/G0|^2 table vs solver at 300 random points: median 1.3e-06, max 2.7e-04
+  |G/G0|^2 at E = -2, p =  5.0: CT25 alpha_s 58.1626, two-loop at 0.118 58.1640 (-0.00%)
+  |G/G0|^2 at E = -2, p = 15.0: CT25 alpha_s 38.3667, two-loop at 0.118 38.3487 (+0.05%)
+  |G/G0|^2 at E = -2, p = 30.0: CT25 alpha_s 15.1310, two-loop at 0.118 15.1145 (+0.11%)
+octet G8/G0 (repulsive Coulomb, alpha_s = CT25(25 GeV) = 0.1469): exact vs LS solver max 1.7e-06; table vs exact max 1.2e-05
+  |G8/G0|^2 at E = -2, p =  5.0: 0.6906
+  |G8/G0|^2 at E = +0, p = 10.0: 0.6679
+  |G8/G0|^2 at E = +4, p = 30.0: 0.7386
+  |G8/G0|^2 at E = -2, p = 50.0: 0.8227

@@ -2,6 +2,7 @@
 """STAGE 5 -- tables for comparing our solver with an independent one, number by number.
 
 Run from toponium_study/ (a few minutes):  uv run python 5_comparison_tables.py
+Finer grid:  uv run python 5_comparison_tables.py 120   (n = 120 per panel, N = 600; writes results/5_comparison_tables_N600/)
 Output -> results/5_comparison_tables/{params.csv, potential.csv, G_small.csv, G_dense.csv, summary.txt}
 
 All tables are for the COLOUR SINGLET (C_F = 4/3, attractive), the only case JKT treat.
@@ -35,14 +36,15 @@ EQUATION MAP  (column  ->  JKT equation  ->  toponium.py)
 
 import csv
 import os
+import sys
 
 import numpy as np
 
 from toponium import Constants, JKTPotential, LSSolver, CoulombExact, C_F, N_F, M_T, GAMMA_T
 
 
-OUT = "results/5_comparison_tables"
-N_PER_PANEL = 48
+N_PER_PANEL = int(sys.argv[1]) if len(sys.argv) > 1 else 48
+OUT = "results/5_comparison_tables" + ("" if N_PER_PANEL == 48 else f"_N{5 * N_PER_PANEL}")
 MZ = 91.1876
 
 # settings: (id, kind, alpha, q_cut)   alpha = alpha_s(mZ) for JKT, the fixed alpha for Coulomb

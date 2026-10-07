@@ -1,0 +1,19 @@
+STAGE 6, run2_gg_singlet_13TeV: gg -> tt, colour singlet only; toponium T-factors at 13 TeV, T = sigma_with / sigma_without per bin
+process: g g > t t~ > b e+ ve b~ mu- vm~; colour singlet only (CF = 2/3, Fuks (19)-(20))
+WITH: gg |M|^2 -> |M|^2 + (|G/G0|^2 - 1)|M_1|^2 (Fuks (16), singlet (19)-(20)) for W <= 350, p* <= 50 GeV;
+G from our JKT solver with CT25NNLO's alpha_s(Q); MadGraph LO, CT25NNLO, m_t = 173, Gamma_t = 1.49
+
+without : 20000 events in 1 runs, sigma = 0.988434 pb
+            without_gg1_13TeV_smoke.npz        seed  9303  sigma 0.988434 pb
+with    : 20000 events in 1 runs, sigma = 1.03405 pb
+            with_gg1_13TeV_smoke.npz           seed  9304  sigma 1.03405 pb
+total sigma_with / sigma_without = 1.04615
+
+abs_y_ttbar_0-2.4: first bin [0.0, 0.12] T = 1.02178 +- 0.03465; max |T - 1| = 0.1021
+y_ttbar_-2.6-2.6: first bin [-2.6, -1.6] T = 1.09925 +- 0.04583; max |T - 1| = 0.0992
+m_ttbar_250-3500: first bin [250, 400] T = 1.22483 +- 0.02537; max |T - 1| = 0.6077
+m_ttbar_325-2000: first bin [325, 400] T = 1.22321 +- 0.02535; max |T - 1| = 0.2393
+abs_y_ttbar_0-2.5: first bin [0, 0.25] T = 1.04844 +- 0.02449; max |T - 1| = 0.0789
+abs_y_boost_0-2.5: first bin [0, 0.25] T = 1.05330 +- 0.02459; max |T - 1| = 0.2311
+HT_ttbar_0-2000: first bin [0, 90] T = 1.33212 +- 0.03579; max |T - 1| = 0.3321
+-> results/6_tfactors/run2_gg_singlet_13TeV/smoke/tfactors_13TeV.csv, plots/ (7 figures + all_bins.png)

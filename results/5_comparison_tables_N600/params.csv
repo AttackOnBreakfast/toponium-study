@@ -1,0 +1,23 @@
+# Toponium S-wave Green's function, JKT (Z. Phys. C 56 (1992) 653) Secs. 2-3. Colour singlet.
+# Units: GeV. m_t = 173.0, Gamma_t = 1.49, C_F = 1.333333, n_F = 5, mZ = 91.1876.
+# JKT potential: Lambda_MSbar from (14) at Q = mZ; (13) with the NLO bracket (31/3 - 10 n_F/9) alpha/4pi;
+#   (15) with Lambda_R = 0.4 GeV, switch at |p| = 5 GeV, C from continuity there;
+#   (19) below q_cut with C1 from continuity at q_cut; the d3 term V0_tilde fixed by (20): V_cut(r = 1/GeV) = -1/4 GeV.
+# Position-space convention: V(r) = Int d^3q/(2pi)^3 e^{-iq.r} V(q), so the d3 term adds V0_tilde/(2pi)^3 = shift to V(r).
+# Coulomb rows: V = -4 pi C_F alpha/Q^2, alpha fixed, no bracket, no cut, no shift.
+# Sign of G: JKT (6), G0 = 1/(E + i Gamma_t - p^2/m_t); G -> G0 as alpha -> 0.
+# G at energy E includes the d3 term, i.e. it is solved with G0 at E - shift. G0 columns are at the physical E.
+# Solver: JKT (21) on Gauss-Legendre nodes (23), 120 per panel on (0,4,16,60,m_t) + t=1/q tail (N = 600).
+# alpha = alpha_s(mZ) for jkt rows, the fixed alpha for coulomb rows.
+# shift = V0_tilde/(2pi)^3. Vcut_r1 = V_cut(r = 1/GeV) including the d3 term: -0.25 by (20).
+id,potential,alpha,q_cut,Lambda_MSbar,C,C1,V0_tilde,shift,alpha_2loop_at_mZ,Vcut_r1
+jkt_a0.112,jkt,0.112,0.05,0.1405693106,-0.04828552961,3015.586006,1398.617427,5.638444764,0.112,-0.25
+jkt_a0.118,jkt,0.118,0.05,0.2001964252,-0.03200685611,3016.347673,1405.911101,5.667848786,0.118,-0.25
+jkt_a0.120,jkt,0.12,0.05,0.2234305246,-0.02617048613,3016.620752,1408.523944,5.678382308,0.12,-0.25
+jkt_a0.125,jkt,0.125,0.05,0.2894010417,-0.01055757535,3017.351268,1415.508057,5.706538356,0.125,-0.25
+jkt_qc10,jkt,0.12,0.01,0.2234305246,-0.02617048613,74884.94477,6789.579667,27.3717953,0.12,-0.25
+jkt_qc20,jkt,0.12,0.02,0.2234305246,-0.02617048613,18737.85466,3427.523702,13.81786234,0.12,-0.25
+jkt_qc100,jkt,0.12,0.1,0.2234305246,-0.02617048613,770.5615245,732.5732309,2.953326348,0.12,-0.25
+jkt_qc200,jkt,0.12,0.2,0.2234305246,-0.02617048613,208.457725,389.0286493,1.56834636,0.12,-0.25
+coul_a0.12,coulomb,0.12,nan,nan,nan,nan,nan,nan,nan,nan
+coul_a0.15,coulomb,0.15,nan,nan,nan,nan,nan,nan,nan,nan

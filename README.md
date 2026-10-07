@@ -10,7 +10,7 @@ how they are compared, the solver step by step with JKT equation numbers, and al
 
 ## Files
 
-Seven Python files: one library and six scripts you run.
+Eight Python files: one library and seven scripts you run.
 
 `toponium.py` is the only library. It holds six classes, top to bottom:
 
@@ -40,6 +40,7 @@ environment itself is `.venv/`). First time only: `uv sync`. Then run each stage
 | 3 | `3_fuks_fig1.py` | Fuks Fig. 1 from swData, ours alongside | ~10 s |
 | 4 | `4_fuks_figs2to5.py` | Fuks Figs. 2-5: same events re-weighted with Fuks's G and ours | ~40 s |
 | 5 | `5_comparison_tables.py` | CSV tables (parameters, V vs Q^2, G on E-p grids; colour singlet) for comparing with an independent solver | ~1 min |
+| 6 | `6_tfactors.py` | toponium T-factors at 13 TeV for the requested binnings, T = sigma_with/sigma_without per bin: 10M LO events without + 10M with toponium (gg singlet x \|G/G0\|^2 in the matrix element, Fuks (16); our G with CT25NNLO's alpha_s(Q)). Runs: `run1_pp_fullcolour_13TeV` (pp, gg singlet+octet and qqbar), `run2_gg_singlet_13TeV` (gg, colour singlet only). `uv run --with six python 6_tfactors.py {setup,smoke,run,analyse} RUN`; results in `results/6_tfactors/RUN/` | ~4-5 h per run |
 
 Each stage writes `results/<stage>/summary.txt` (+ figures). 
 

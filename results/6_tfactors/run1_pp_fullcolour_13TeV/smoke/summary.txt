@@ -1,0 +1,18 @@
+STAGE 6: toponium T-factors at 13 TeV, T = sigma_with / sigma_without per bin
+WITH: gg |M|^2 -> |M|^2 + (|G/G0|^2 - 1)|M_1|^2 (Fuks (16), singlet (19)-(20)) for W <= 350, p* <= 50 GeV;
+G from our JKT solver with CT25NNLO's alpha_s(Q); MadGraph LO, CT25NNLO, m_t = 173, Gamma_t = 1.49
+
+without : 20000 events in 1 runs, sigma = 5.118 pb
+            sm_13TeV_smoke.npz                 seed  9301  sigma 5.118 pb
+with    : 20000 events in 1 runs, sigma = 5.1491 pb
+            topo_13TeV_ct25as_smoke.npz        seed  9302  sigma 5.1491 pb
+total sigma_with / sigma_without = 1.00608
+
+abs_y_ttbar_0-2.4: first bin [0.0, 0.12] T = 0.99947 +- 0.03459; max |T - 1| = 0.0906
+y_ttbar_-2.6-2.6: first bin [-2.6, -1.6] T = 0.99992 +- 0.03918; max |T - 1| = 0.0457
+m_ttbar_250-3500: first bin [250, 400] T = 1.00411 +- 0.02222; max |T - 1| = 0.6768
+m_ttbar_325-2000: first bin [325, 400] T = 1.00509 +- 0.02226; max |T - 1| = 0.3013
+abs_y_ttbar_0-2.5: first bin [0, 0.25] T = 0.96558 +- 0.02291; max |T - 1| = 0.0436
+abs_y_boost_0-2.5: first bin [0, 0.25] T = 0.96835 +- 0.02296; max |T - 1| = 0.0616
+HT_ttbar_0-2000: first bin [0, 90] T = 1.06798 +- 0.02965; max |T - 1| = 0.1470
+-> results/6_tfactors/smoke/tfactors_13TeV.csv, plots/ (7 figures + all_bins.png)

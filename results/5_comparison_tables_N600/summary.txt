@@ -1,0 +1,25 @@
+STAGE 5: tables for comparison with an independent solver (colour singlet)
+
+Parameters (GeV):
+  id            alpha  q_cut   Lambda         C         C1   V0_tilde    shift    a(mZ)  Vcut(r=1)
+  jkt_a0.112    0.112  0.050  0.14057  -0.04829  3.016e+03   1398.617   5.6384  0.11200  -0.250000
+  jkt_a0.118    0.118  0.050  0.20020  -0.03201  3.016e+03   1405.911   5.6678  0.11800  -0.250000
+  jkt_a0.120    0.120  0.050  0.22343  -0.02617  3.017e+03   1408.524   5.6784  0.12000  -0.250000
+  jkt_a0.125    0.125  0.050  0.28940  -0.01056  3.017e+03   1415.508   5.7065  0.12500  -0.250000
+  jkt_qc10      0.120  0.010  0.22343  -0.02617  7.488e+04   6789.580  27.3718  0.12000  -0.250000
+  jkt_qc20      0.120  0.020  0.22343  -0.02617  1.874e+04   3427.524  13.8179  0.12000  -0.250000
+  jkt_qc100     0.120  0.100  0.22343  -0.02617  7.706e+02    732.573   2.9533  0.12000  -0.250000
+  jkt_qc200     0.120  0.200  0.22343  -0.02617  2.085e+02    389.029   1.5683  0.12000  -0.250000
+  coul_a0.12    0.120   (fixed-alpha Coulomb: no Lambda, C, C1, cut or shift)
+  coul_a0.15    0.150   (fixed-alpha Coulomb: no Lambda, C, C1, cut or shift)
+
+Checks:
+  coul_a0.12: solver vs exact on the dense grid, median 6.2e-08, max 7.4e-06
+  coul_a0.15: solver vs exact on the dense grid, median 1.2e-07, max 1.2e-05
+  jkt_qc10: max |G/G(q_cut = 50 MeV) - 1| = 1.3e-03
+  jkt_qc20: max |G/G(q_cut = 50 MeV) - 1| = 9.8e-04
+  jkt_qc100: max |G/G(q_cut = 50 MeV) - 1| = 1.6e-03
+  jkt_qc200: max |G/G(q_cut = 50 MeV) - 1| = 4.9e-03
+
+Files: params.csv (one row per setting), potential.csv (V vs Q per setting),
+  G_small.csv (8 E x 8 p per setting), G_dense.csv (21 E x 30 p).

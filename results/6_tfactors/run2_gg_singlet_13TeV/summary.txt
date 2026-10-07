@@ -1,0 +1,42 @@
+STAGE 6, run2_gg_singlet_13TeV: gg -> tt, colour singlet only; toponium T-factors at 13 TeV, T = sigma_with / sigma_without per bin
+process: g g > t t~ > b e+ ve b~ mu- vm~; colour singlet only (CF = 2/3, Fuks (19)-(20))
+WITH: gg |M|^2 -> |M|^2 + (|G/G0|^2 - 1)|M_1|^2 (Fuks (16), singlet (19)-(20)) for W <= 350, p* <= 50 GeV;
+G from our JKT solver with CT25NNLO's alpha_s(Q); MadGraph LO, CT25NNLO, m_t = 173, Gamma_t = 1.49
+
+without : 10000000 events in 10 runs, sigma = 0.990303 pb
+            without_gg1_13TeV_s3301.npz        seed  3301  sigma 0.99048 pb
+            without_gg1_13TeV_s3302.npz        seed  3302  sigma 0.990709 pb
+            without_gg1_13TeV_s3303.npz        seed  3303  sigma 0.99021 pb
+            without_gg1_13TeV_s3304.npz        seed  3304  sigma 0.990115 pb
+            without_gg1_13TeV_s3305.npz        seed  3305  sigma 0.990051 pb
+            without_gg1_13TeV_s3306.npz        seed  3306  sigma 0.990631 pb
+            without_gg1_13TeV_s3307.npz        seed  3307  sigma 0.990685 pb
+            without_gg1_13TeV_s3308.npz        seed  3308  sigma 0.990209 pb
+            without_gg1_13TeV_s3309.npz        seed  3309  sigma 0.989733 pb
+            without_gg1_13TeV_s3310.npz        seed  3310  sigma 0.990211 pb
+with    : 10000000 events in 10 runs, sigma = 1.03661 pb
+            with_gg1_13TeV_s4301.npz           seed  4301  sigma 1.0368 pb
+            with_gg1_13TeV_s4302.npz           seed  4302  sigma 1.03687 pb
+            with_gg1_13TeV_s4303.npz           seed  4303  sigma 1.03662 pb
+            with_gg1_13TeV_s4304.npz           seed  4304  sigma 1.03655 pb
+            with_gg1_13TeV_s4305.npz           seed  4305  sigma 1.03677 pb
+            with_gg1_13TeV_s4306.npz           seed  4306  sigma 1.03646 pb
+            with_gg1_13TeV_s4307.npz           seed  4307  sigma 1.03634 pb
+            with_gg1_13TeV_s4308.npz           seed  4308  sigma 1.03656 pb
+            with_gg1_13TeV_s4309.npz           seed  4309  sigma 1.03661 pb
+            with_gg1_13TeV_s4310.npz           seed  4310  sigma 1.03656 pb
+total sigma_with / sigma_without = 1.04676
+
+m_ttbar_345-1600: first bin T = 1.11244 +- 0.00105; max |T - 1| = 0.1124
+pT_top_0-500: first bin T = 1.22192 +- 0.00116; max |T - 1| = 0.2219
+abs_y_top_0-2.5: first bin T = 1.04657 +- 0.00099; max |T - 1| = 0.0484
+pT_top_0-600: first bin T = 1.13735 +- 0.00086; max |T - 1| = 0.1374
+abs_y_top_x_pT_top: first bin T = 1.14519 +- 0.00188; max |T - 1| = 0.1452
+abs_y_ttbar_0-2.4: first bin T = 1.04214 +- 0.00157; max |T - 1| = 0.0624
+y_ttbar_-2.6-2.6: first bin T = 1.06421 +- 0.00200; max |T - 1| = 0.0645
+m_ttbar_250-3500: first bin T = 1.20865 +- 0.00111; max |T - 1| = 0.2087
+m_ttbar_325-2000: first bin T = 1.20891 +- 0.00112; max |T - 1| = 0.2089
+abs_y_ttbar_0-2.5: first bin T = 1.04298 +- 0.00109; max |T - 1| = 0.0677
+abs_y_boost_0-2.5: first bin T = 1.04291 +- 0.00109; max |T - 1| = 0.0871
+HT_ttbar_0-2000: first bin T = 1.36850 +- 0.00164; max |T - 1| = 0.3685
+-> results/6_tfactors/run2_gg_singlet_13TeV/tfactors_13TeV.csv, plots/ (12 figures + all_bins.png)

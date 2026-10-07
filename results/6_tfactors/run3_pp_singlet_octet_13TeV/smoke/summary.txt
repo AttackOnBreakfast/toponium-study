@@ -1,0 +1,44 @@
+STAGE 6, run3_pp_singlet_octet_13TeV: pp -> tt, gg singlet x |G1/G0|^2, octet (gg octet, qqbar) x |G8/G0|^2; toponium T-factors at 13 TeV, T = sigma_with / sigma_without per bin
+process: p p > t t~ > b e+ ve b~ mu- vm~; full colour
+WITH: gg |M|^2 -> |M|^2 + (|G/G0|^2 - 1)|M_1|^2 (Fuks (16), singlet (19)-(20)) for W <= 350, p* <= 50 GeV;
+G from our JKT solver with CT25NNLO's alpha_s(Q); MadGraph LO, CT25NNLO, m_t = 173, Gamma_t = 1.49
+
+without : 20000 events in 1 runs, sigma = 5.118 pb
+            sm_13TeV_smoke.npz                 seed  9301  sigma 5.118 pb
+with    : 20000 events in 1 runs, sigma = 5.14896 pb
+            with18_13TeV_smoke.npz             seed  9305  sigma 5.14896 pb
+total sigma_with / sigma_without = 1.00605
+
+m_ttbar_345-1600: first bin T = 1.01178 +- 0.02248; max |T - 1| = 0.0374
+pT_top_0-500: first bin T = 1.04755 +- 0.02252; max |T - 1| = 0.0739
+abs_y_top_0-2.5: first bin T = 1.01136 +- 0.02214; max |T - 1| = 0.0226
+pT_top_0-600: first bin T = 1.03177 +- 0.01758; max |T - 1| = 0.0382
+abs_y_top_x_pT_top: first bin T = 1.00605 +- 0.03848; max |T - 1| = 0.1499
+abs_y_ttbar_0-2.4: first bin T = 1.02947 +- 0.03537; max |T - 1| = 0.1041
+y_ttbar_-2.6-2.6: first bin T = 1.03299 +- 0.04014; max |T - 1| = 0.0741
+m_ttbar_250-3500: first bin T = 1.02672 +- 0.02259; max |T - 1| = 0.4970
+m_ttbar_325-2000: first bin T = 1.02774 +- 0.02263; max |T - 1| = 0.1995
+abs_y_ttbar_0-2.5: first bin T = 0.99190 +- 0.02338; max |T - 1| = 0.0874
+abs_y_boost_0-2.5: first bin T = 0.98719 +- 0.02329; max |T - 1| = 0.0658
+HT_ttbar_0-2000: first bin T = 1.08433 +- 0.03000; max |T - 1| = 0.1453
+-> results/6_tfactors/run3_pp_singlet_octet_13TeV/smoke/tfactors_13TeV.csv, plots/ (12 figures + all_bins.png)
+
+COLOUR-OCTET EFFECT (run 3 - run 1, same WITHOUT sample)
+  sigma_with: singlet only (run 1) 5.1491 pb, singlet + octet (run 3) 5.14896 pb
+  toponium excess (singlet only): 0.03110 pb; octet change: -0.00014 +- 0.05149 pb = -0.5% of the toponium excess; total T 1.00608 -> 1.00605
+  effective octet fraction of the window rate (measured / [sum w (|G8/G0|^2 - 1)]): 0.013
+  estimate at alpha_s = 0.12: octet change -0.00012 pb = -0.4% of the toponium excess
+  estimate at alpha_s = 0.18: octet change -0.00017 pb = -0.5% of the toponium excess
+  m_ttbar_345-1600: first bin T 0.97944 -> 1.01178, Delta T = +0.03234 +- 0.02227
+  pT_top_0-500: first bin T 1.03691 -> 1.04755, Delta T = +0.01064 +- 0.02223
+  abs_y_top_0-2.5: first bin T 1.03338 -> 1.01136, Delta T = -0.02201 +- 0.02223
+  pT_top_0-600: first bin T 1.01524 -> 1.03177, Delta T = +0.01653 +- 0.01740
+  abs_y_top_x_pT_top: first bin T 0.99209 -> 1.00605, Delta T = +0.01396 +- 0.03835
+  abs_y_ttbar_0-2.4: first bin T 0.99947 -> 1.02947, Delta T = +0.03000 +- 0.03491
+  y_ttbar_-2.6-2.6: first bin T 0.99992 -> 1.03299, Delta T = +0.03307 +- 0.03956
+  m_ttbar_250-3500: first bin T 1.00411 -> 1.02672, Delta T = +0.02261 +- 0.02235
+  m_ttbar_325-2000: first bin T 1.00509 -> 1.02774, Delta T = +0.02265 +- 0.02239
+  abs_y_ttbar_0-2.5: first bin T 0.96558 -> 0.99190, Delta T = +0.02632 +- 0.02330
+  abs_y_boost_0-2.5: first bin T 0.96835 -> 0.98719, Delta T = +0.01884 +- 0.02329
+  HT_ttbar_0-2000: first bin T 1.06798 -> 1.08433, Delta T = +0.01635 +- 0.02932
+  -> results/6_tfactors/run3_pp_singlet_octet_13TeV/smoke/octet_effect.csv, plots/compare_*.png
