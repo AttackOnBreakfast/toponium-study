@@ -9,5 +9,18 @@ __pycache__/
 # Editors
 .vscode/
 
-# TEX
-.tex
+# LaTeX build files
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+
+# Talk slides: kept locally, not part of the repo
+talk/
+
+# Green's-function tables on the p* <= 80 grid: regenerable in ~1 min each
+# (6_tfactors.py table run5 / octetcheck / setup of a run7_* run); see README "Reproduction"
+results/6_tfactors/*_p80.dat
+results/6_tfactors/run7_*/green*_p80.dat
