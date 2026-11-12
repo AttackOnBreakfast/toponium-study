@@ -1,0 +1,15 @@
+STAGE 6, run7_mt172p50_13TeV: m_t scan, m_t = 172.5 GeV, Gamma_t = 1.475 GeV (LO scaling): K = 1 + Delta/SM_full, own SM_full (10 x 1M); SM_win and topo_win for gg and qqbar in W <= 2 m_t + 4, p* <= 100 GeV; singlet: full JKT (two-loop alpha_s, alpha_s(mZ) = 0.12); octet: coulomb_as25
+
+SM_full: output/run7_mt172p50_13TeV/events, 10000000 events in 10 runs, sigma = 20.4022 pb
+SM_win_gg_s8504              seed 8504  sigma 0.123062 pb  1000000 events; max W 349.00, max p* 100.00 GeV
+topo_win_gg_coulomb_as25_s8514 seed 8514  sigma 0.309628 pb  1000000 events; max W 349.00, max p* 99.99 GeV
+SM_win_qq_s8524              seed 8524  sigma 0.039405 pb  1000000 events; max W 349.00, max p* 99.99 GeV
+topo_win_qq_coulomb_as25_s8534 seed 8534  sigma 0.030665 pb  1000000 events; max W 349.00, max p* 100.00 GeV
+SM_win_qq_s8524              mirror check: <y_tt> = -0.0005 +- 0.0015
+topo_win_qq_coulomb_as25_s8534 mirror check: <y_tt> = +0.0009 +- 0.0015
+
+results/6_tfactors/run7_mt172p50_13TeV/kfactors_13TeV_W325-349_pstar100_octet-coulomb_as25.csv
+  window 325 <= W <= 349, p* < 100: total Delta = 0.17798 pb (K_total = 1.00872); Delta in m_ttbar_345-1600: 0.06082 pb
+
+results/6_tfactors/run7_mt172p50_13TeV/kfactors_13TeV_W325-349_pstar50_octet-coulomb_as25.csv
+  window 325 <= W <= 349, p* < 50: total Delta = 0.16785 pb (K_total = 1.00823); Delta in m_ttbar_345-1600: 0.05714 pb

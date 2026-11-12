@@ -1,0 +1,15 @@
+# Toponium K-factors (colour singlet + octet), p p -> t t~, 13 TeV, LO MadGraph5_aMC@NLO 2.9.27, CT25NNLO (run run7_mt171p25_13TeV; m_t = 171.25 GeV, Gamma_t = 1.4378 GeV)
+# K = sigma(with toponium) / sigma(SM) per bin; multiply the SM prediction of the bin by K.
+# K_norm = K / K over the whole binning: use it for distributions normalised to their own integral.
+# stat_err: MC statistics. model_unc: p* cut (100 vs 50 GeV).
+# Bins: lower edge included, upper excluded; tops = parton level (b + l + nu).
+# pT_top_0-500
+pT_top_GeV_lo,pT_top_GeV_hi,K,stat_err,model_unc,K_norm
+0,60,1.0405,0.0001,0.0018,1.0315
+60,100,1.0003,0.0000,0.0003,0.9916
+100,150,1.0000,0.0000,0.0000,0.9913
+150,200,1.0000,0.0000,0.0000,0.9913
+200,260,1.0000,0.0000,0.0000,0.9913
+260,320,1.0000,0.0000,0.0000,0.9913
+320,400,1.0000,0.0000,0.0000,0.9913
+400,500,1.0000,0.0000,0.0000,0.9913

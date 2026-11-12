@@ -1,0 +1,57 @@
+STAGE 6, run4_pp_singlet_octet_ll_13TeV: pp -> tt -> w+ b w- b~ (w -> l vl, l = e, mu), gg singlet x |G1/G0|^2, octet (gg octet, qqbar) x |G8/G0|^2; toponium T-factors at 13 TeV, T = sigma_with / sigma_without per bin
+process: p p > t t~ > w+ b w- b~, w+ > l+ vl, w- > l- vl~; full colour
+WITH: gg |M|^2 -> |M|^2 + (|G/G0|^2 - 1)|M_1|^2 (Fuks (16), singlet (19)-(20)) for W <= 350, p* <= 50 GeV; octet: gg |M_8|^2 and qqbar |M|^2 x |G8/G0|^2 (repulsive Coulomb, alpha_s = CT25(25 GeV));
+G from our JKT solver with CT25NNLO's alpha_s(Q); MadGraph LO, CT25NNLO, m_t = 173, Gamma_t = 1.49
+
+without : 10000000 events in 10 runs, sigma = 20.1335 pb
+            sm_ll_13TeV_s5301.npz              seed  5301  sigma 20.1253 pb
+            sm_ll_13TeV_s5311.npz              seed  5311  sigma 20.1328 pb
+            sm_ll_13TeV_s5321.npz              seed  5321  sigma 20.1359 pb
+            sm_ll_13TeV_s5331.npz              seed  5331  sigma 20.1281 pb
+            sm_ll_13TeV_s5341.npz              seed  5341  sigma 20.1357 pb
+            sm_ll_13TeV_s5351.npz              seed  5351  sigma 20.1345 pb
+            sm_ll_13TeV_s5361.npz              seed  5361  sigma 20.1376 pb
+            sm_ll_13TeV_s5371.npz              seed  5371  sigma 20.1376 pb
+            sm_ll_13TeV_s5381.npz              seed  5381  sigma 20.1352 pb
+            sm_ll_13TeV_s5391.npz              seed  5391  sigma 20.1319 pb
+with    : 10000000 events in 10 runs, sigma = 20.2879 pb
+            with18_ll_13TeV_s5401.npz          seed  5401  sigma 20.2854 pb
+            with18_ll_13TeV_s5411.npz          seed  5411  sigma 20.292 pb
+            with18_ll_13TeV_s5421.npz          seed  5421  sigma 20.2902 pb
+            with18_ll_13TeV_s5431.npz          seed  5431  sigma 20.2913 pb
+            with18_ll_13TeV_s5441.npz          seed  5441  sigma 20.2904 pb
+            with18_ll_13TeV_s5451.npz          seed  5451  sigma 20.2892 pb
+            with18_ll_13TeV_s5461.npz          seed  5461  sigma 20.2843 pb
+            with18_ll_13TeV_s5471.npz          seed  5471  sigma 20.286 pb
+            with18_ll_13TeV_s5481.npz          seed  5481  sigma 20.288 pb
+            with18_ll_13TeV_s5491.npz          seed  5491  sigma 20.2824 pb
+total sigma_with / sigma_without = 1.00767
+
+m_ttbar_345-1600: first bin T = 1.01819 +- 0.00102; max |T - 1| = 0.0182
+pT_top_0-500: first bin T = 1.03610 +- 0.00100; max |T - 1| = 0.0361
+abs_y_top_0-2.5: first bin T = 1.00663 +- 0.00098; max |T - 1| = 0.0092
+pT_top_0-600: first bin T = 1.02227 +- 0.00078; max |T - 1| = 0.0223
+abs_y_top_x_pT_top: first bin T = 1.02247 +- 0.00175; max |T - 1| = 0.0274
+abs_y_ttbar_0-2.4: first bin T = 1.00855 +- 0.00155; max |T - 1| = 0.0097
+y_ttbar_-2.6-2.6: first bin T = 1.00750 +- 0.00177; max |T - 1| = 0.0102
+m_ttbar_250-3500: first bin T = 1.03747 +- 0.00103; max |T - 1| = 0.0375
+m_ttbar_325-2000: first bin T = 1.03748 +- 0.00103; max |T - 1| = 0.0375
+abs_y_ttbar_0-2.5: first bin T = 1.00747 +- 0.00108; max |T - 1| = 0.0090
+abs_y_boost_0-2.5: first bin T = 1.00756 +- 0.00108; max |T - 1| = 0.0103
+HT_ttbar_0-2000: first bin T = 1.05820 +- 0.00132; max |T - 1| = 0.0582
+-> results/6_tfactors/run4_pp_singlet_octet_ll_13TeV/tfactors_13TeV.csv, plots/ (12 figures + all_bins.png)
+
+COMPARISON WITH run3_pp_singlet_octet_13TeV (same physics, different lepton content): T_this - T_other per bin
+  110 bins with T != 1: pull mean -0.00, rms 0.89, max |pull| 2.15; |pull| > 2 in 1 bins (expect ~5.1)
+  m_ttbar_345-1600       bin 0: T = 1.01819 +- 0.00102   run3: 1.01910 +- 0.00102
+  pT_top_0-500           bin 0: T = 1.03610 +- 0.00100   run3: 1.03626 +- 0.00100
+  abs_y_top_0-2.5        bin 0: T = 1.00663 +- 0.00098   run3: 1.00855 +- 0.00098
+  pT_top_0-600           bin 0: T = 1.02227 +- 0.00078   run3: 1.02312 +- 0.00078
+  abs_y_top_x_pT_top     bin 0: T = 1.02247 +- 0.00175   run3: 1.02612 +- 0.00176
+  abs_y_ttbar_0-2.4      bin 0: T = 1.00855 +- 0.00155   run3: 1.01031 +- 0.00156
+  y_ttbar_-2.6-2.6       bin 0: T = 1.00750 +- 0.00177   run3: 1.01161 +- 0.00177
+  m_ttbar_250-3500       bin 0: T = 1.03747 +- 0.00103   run3: 1.03871 +- 0.00103
+  m_ttbar_325-2000       bin 0: T = 1.03748 +- 0.00103   run3: 1.03877 +- 0.00103
+  abs_y_ttbar_0-2.5      bin 0: T = 1.00747 +- 0.00108   run3: 1.00744 +- 0.00108
+  abs_y_boost_0-2.5      bin 0: T = 1.00756 +- 0.00108   run3: 1.00760 +- 0.00108
+  HT_ttbar_0-2000        bin 0: T = 1.05820 +- 0.00132   run3: 1.06013 +- 0.00132

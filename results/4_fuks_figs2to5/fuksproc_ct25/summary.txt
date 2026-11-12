@@ -1,0 +1,50 @@
+singlet: 7884 events in 330<=W<=350, 92.7% of the rate in 340<=W<=350
+full colour: 5828 events in 340<=W<=350
+sigma(singlet) = 28.428 fb, sigma(full colour) = 99.887 fb, singlet fraction 0.285
+p*<50 keeps 0.9011 of the singlet rate (340<=W<=350)
+
+Green's-function enhancement sigma_rw/sigma (singlet, W window, p*<50):
+   Fuks: swData via CALCGREEN    8.899
+   ours: Coulomb exact 0.15      8.921
+   ours: JKT'92 LS               7.971
+per-event |w_ours(Coulomb 0.15)/w_Fuks - 1|: median 3.6e-03, max 1.2e-02
+
+Fig. 2 (d2sigma/p*^2 per bin, fb GeV^-2; Fuks colour scale 5e-5..1e-2):
+   unweighted                   max 1.40e-03 at E=+1.4, p*=2.5; cells < 5e-5: 51%
+   Fuks: swData via CALCGREEN   max 3.15e-02 at E=-2.2, p*=2.5; cells < 5e-5: 20%
+   ours: Coulomb exact 0.15     max 3.16e-02 at E=-2.2, p*=2.5; cells < 5e-5: 20%
+   ours: JKT'92 LS              max 3.77e-02 at E=-2.2, p*=2.5; cells < 5e-5: 25%
+
+<p*>(E) with re-weighting (Fuks quote ~20 GeV at E=-2 GeV):
+   unweighted                   <p*>(E=-2+-0.25) =  27.4 GeV
+   Fuks: swData via CALCGREEN   <p*>(E=-2+-0.25) =  21.4 GeV
+   ours: Coulomb exact 0.15     <p*>(E=-2+-0.25) =  21.4 GeV
+   ours: JKT'92 LS              <p*>(E=-2+-0.25) =  20.1 GeV
+
+Fig. 3, d(sigma) per 0.5 GeV bin [fb] (p*<50 | p*<100):
+   W=330.25: no re-weighting: 0.0233|0.035  Fuks: swData: 0.0946|0.129  Coulomb exact 0.15: 0.0949|0.129  JKT'92 LS: 0.0925|0.124
+   W=335.25: no re-weighting: 0.0778|0.124  Fuks: swData: 0.411|0.563  Coulomb exact 0.15: 0.412|0.58  JKT'92 LS: 0.423|0.577
+   W=340.25: no re-weighting: 0.179|0.23  Fuks: swData: 1.93|2.17  Coulomb exact 0.15: 1.94|2.19  JKT'92 LS: 2.56|2.8
+   W=344.75: no re-weighting: 0.619|0.724  Fuks: swData: 14.7|15.2  Coulomb exact 0.15: 14.7|15.3  JKT'92 LS: 10.7|11.1
+   W=349.75: no re-weighting: 3.47|3.75  Fuks: swData: 14.7|16  Coulomb exact 0.15: 14.7|16  JKT'92 LS: 12|13.3
+   peak Fuks: swData via CALCGREEN   W = 345.25 GeV (E = -0.75)
+   peak ours: Coulomb exact 0.15     W = 345.25 GeV (E = -0.75)
+   peak ours: JKT'92 LS              W = 343.25 GeV (E = -2.75)
+
+Fig. 4, dsigma/sigma per 1 GeV bin, p*<50:
+   no re-weighting              peak 0.0488 at p*=22.5; p*=4.5: 0.0023; p*=49.5: 0.0058
+   Fuks: swData via CALCGREEN   peak 0.0429 at p*=27.5; p*=4.5: 0.0034; p*=49.5: 0.0040
+   ours: Coulomb exact 0.15     peak 0.0429 at p*=27.5; p*=4.5: 0.0034; p*=49.5: 0.0040
+   ours: JKT'92 LS              peak 0.0445 at p*=27.5; p*=4.5: 0.0026; p*=49.5: 0.0041
+
+Fig. 5 (-4<=E<=0, p*<=50): 1/sigma dsigma/dm peak [1/GeV] @ m, and mean mass [GeV]:
+   mtL octet (full − singlet)                   peak 0.174 @ 168.38   mean 167.45
+   mtL singlet, no re-weighting                 peak 0.173 @ 171.38   mean 167.33
+   mtL singlet, Fuks: swData via CALCGREEN      peak 0.208 @ 171.38   mean 168.35
+   mtL singlet, ours: Coulomb exact 0.15        peak 0.208 @ 170.38   mean 168.35
+   mtL singlet, ours: JKT'92 LS                 peak 0.218 @ 170.12   mean 168.14
+   mtH octet (full − singlet)                   peak 0.506 @ 172.88   mean 172.68
+   mtH singlet, no re-weighting                 peak 0.548 @ 172.88   mean 172.78
+   mtH singlet, Fuks: swData via CALCGREEN      peak 0.578 @ 172.88   mean 172.80
+   mtH singlet, ours: Coulomb exact 0.15        peak 0.577 @ 172.88   mean 172.80
+   mtH singlet, ours: JKT'92 LS                 peak 0.546 @ 172.88   mean 172.77

@@ -1,0 +1,38 @@
+STAGE 6, run6_final_kfactors_13TeV: arbiter, SM_full vs SM_win vs SM_cut vs SM_cut500 in the selection window (sigma in fb, pulls in sigma)
+
+SM_full  10 run(s) SM_full_ll_13TeV_s7101.npz.. sigma 20.1319 pb (10000000 events)
+SM_win   1 run(s) SM_win_gg_s7400.npz.. sigma 0.121636 pb (1000000 events), 1 run(s) SM_win_qq_s7520.npz.. sigma 0.039005 pb (1000000 events)
+SM_cut   1 run(s) SM_cut_gg_s7701.npz.. sigma 0.121621 pb (500000 events), 1 run(s) SM_cut_qq_s7711.npz.. sigma 0.03899 pb (1000000 events)
+SM_cut500 1 run(s) SM_cut500_ll_s7801.npz.. sigma 11.5088 pb (1000000 events)
+
+selection window 326 <= W <= 350 GeV, p* < 100 GeV:
+  total        SM_full 148.886+-0.547  SM_win 153.026+-0.125  SM_cut 153.084+-0.172  SM_cut500 153.389+-1.329 fb | cut/win 1.000 ( +0.3)  cut500/full 1.030 ( +3.1)  cut500/win 1.002 ( +0.3)
+  W 326-332    SM_full   3.565+-0.085  SM_win   4.739+-0.022  SM_cut   4.759+-0.031  SM_cut500   3.349+-0.196 fb | cut/win 1.004 ( +0.5)  cut500/full 0.939 ( -1.0)  cut500/win 0.707 ( -7.0)
+  W 332-338    SM_full   6.487+-0.114  SM_win   8.547+-0.030  SM_cut   8.541+-0.041  SM_cut500   8.068+-0.305 fb | cut/win 0.999 ( -0.1)  cut500/full 1.244 ( +4.9)  cut500/win 0.944 ( -1.6)
+  W 338-342    SM_full  10.293+-0.144  SM_win  10.831+-0.033  SM_cut  10.809+-0.046  SM_cut500  10.485+-0.347 fb | cut/win 0.998 ( -0.4)  cut500/full 1.019 ( +0.5)  cut500/win 0.968 ( -1.0)
+  W 342-344    SM_full   9.390+-0.137  SM_win   9.604+-0.031  SM_cut   9.592+-0.043  SM_cut500   9.265+-0.327 fb | cut/win 0.999 ( -0.2)  cut500/full 0.987 ( -0.4)  cut500/win 0.965 ( -1.0)
+  W 344-346    SM_full  17.980+-0.190  SM_win  18.211+-0.043  SM_cut  18.208+-0.059  SM_cut500  18.253+-0.458 fb | cut/win 1.000 ( -0.0)  cut500/full 1.015 ( +0.6)  cut500/win 1.002 ( +0.1)
+  W 346-348    SM_full  38.925+-0.280  SM_win  39.018+-0.063  SM_cut  39.052+-0.087  SM_cut500  39.452+-0.674 fb | cut/win 1.001 ( +0.3)  cut500/full 1.014 ( +0.7)  cut500/win 1.011 ( +0.6)
+  W 348-350    SM_full  62.246+-0.354  SM_win  62.075+-0.079  SM_cut  62.123+-0.110  SM_cut500  64.518+-0.862 fb | cut/win 1.001 ( +0.4)  cut500/full 1.037 ( +2.4)  cut500/win 1.039 ( +2.8)
+
+selection window 326 <= W <= 350 GeV, p* < 50 GeV:
+  total        SM_full 130.270+-0.512  SM_win 132.665+-0.116  SM_cut 132.816+-0.160  SM_cut500 134.250+-1.243 fb | cut/win 1.001 ( +0.8)  cut500/full 1.031 ( +3.0)  cut500/win 1.012 ( +1.3)
+  W 326-332    SM_full   2.124+-0.065  SM_win   2.728+-0.017  SM_cut   2.769+-0.023  SM_cut500   1.991+-0.151 fb | cut/win 1.015 ( +1.4)  cut500/full 0.937 ( -0.8)  cut500/win 0.730 ( -4.8)
+  W 332-338    SM_full   4.242+-0.092  SM_win   5.315+-0.023  SM_cut   5.301+-0.032  SM_cut500   5.064+-0.241 fb | cut/win 0.997 ( -0.3)  cut500/full 1.194 ( +3.2)  cut500/win 0.953 ( -1.0)
+  W 338-342    SM_full   7.266+-0.121  SM_win   7.572+-0.028  SM_cut   7.578+-0.038  SM_cut500   7.423+-0.292 fb | cut/win 1.001 ( +0.1)  cut500/full 1.022 ( +0.5)  cut500/win 0.980 ( -0.5)
+  W 342-344    SM_full   7.314+-0.121  SM_win   7.487+-0.028  SM_cut   7.456+-0.038  SM_cut500   7.170+-0.287 fb | cut/win 0.996 ( -0.7)  cut500/full 0.980 ( -0.5)  cut500/win 0.958 ( -1.1)
+  W 344-346    SM_full  15.375+-0.176  SM_win  15.655+-0.040  SM_cut  15.651+-0.055  SM_cut500  15.779+-0.426 fb | cut/win 1.000 ( -0.1)  cut500/full 1.026 ( +0.9)  cut500/win 1.008 ( +0.3)
+  W 346-348    SM_full  35.776+-0.268  SM_win  35.857+-0.060  SM_cut  35.908+-0.083  SM_cut500  36.276+-0.646 fb | cut/win 1.001 ( +0.5)  cut500/full 1.014 ( +0.7)  cut500/win 1.012 ( +0.6)
+  W 348-350    SM_full  58.173+-0.342  SM_win  58.051+-0.077  SM_cut  58.152+-0.106  SM_cut500  60.548+-0.835 fb | cut/win 1.002 ( +0.8)  cut500/full 1.041 ( +2.6)  cut500/win 1.043 ( +3.0)
+
+p* bins, 326 <= W <= 350:
+  p* 0-10      SM_full   5.001+-0.100  SM_win   5.080+-0.023  SM_cut   5.110+-0.031  SM_cut500   4.742+-0.234 fb | cut/win 1.006 ( +0.8)  cut500/full 0.948 ( -1.0)  cut500/win 0.933 ( -1.4)
+  p* 10-20     SM_full  32.596+-0.256  SM_win  33.014+-0.058  SM_cut  32.951+-0.079  SM_cut500  32.800+-0.614 fb | cut/win 0.998 ( -0.6)  cut500/full 1.006 ( +0.3)  cut500/win 0.994 ( -0.3)
+  p* 20-30     SM_full  54.543+-0.331  SM_win  54.936+-0.075  SM_cut  55.101+-0.103  SM_cut500  56.267+-0.805 fb | cut/win 1.003 ( +1.3)  cut500/full 1.032 ( +2.0)  cut500/win 1.024 ( +1.6)
+  p* 30-40     SM_full  25.032+-0.224  SM_win  26.034+-0.051  SM_cut  26.054+-0.071  SM_cut500  27.253+-0.560 fb | cut/win 1.001 ( +0.2)  cut500/full 1.089 ( +3.7)  cut500/win 1.047 ( +2.2)
+  p* 40-50     SM_full  13.098+-0.162  SM_win  13.602+-0.037  SM_cut  13.600+-0.051  SM_cut500  13.189+-0.390 fb | cut/win 1.000 ( -0.0)  cut500/full 1.007 ( +0.2)  cut500/win 0.970 ( -1.1)
+  p* 50-60     SM_full   7.851+-0.126  SM_win   8.610+-0.030  SM_cut   8.545+-0.041  SM_cut500   7.907+-0.302 fb | cut/win 0.992 ( -1.3)  cut500/full 1.007 ( +0.2)  cut500/win 0.918 ( -2.3)
+  p* 60-70     SM_full   5.099+-0.101  SM_win   5.605+-0.024  SM_cut   5.519+-0.033  SM_cut500   5.651+-0.255 fb | cut/win 0.985 ( -2.1)  cut500/full 1.108 ( +2.0)  cut500/win 1.008 ( +0.2)
+  p* 70-80     SM_full   3.070+-0.079  SM_win   3.439+-0.019  SM_cut   3.475+-0.026  SM_cut500   3.107+-0.189 fb | cut/win 1.010 ( +1.1)  cut500/full 1.012 ( +0.2)  cut500/win 0.903 ( -1.7)
+  p* 80-90     SM_full   1.872+-0.061  SM_win   1.896+-0.014  SM_cut   1.928+-0.020  SM_cut500   1.818+-0.145 fb | cut/win 1.017 ( +1.3)  cut500/full 0.971 ( -0.3)  cut500/win 0.959 ( -0.5)
+  p* 90-100    SM_full   0.723+-0.038  SM_win   0.810+-0.009  SM_cut   0.801+-0.013  SM_cut500   0.656+-0.087 fb | cut/win 0.988 ( -0.6)  cut500/full 0.908 ( -0.7)  cut500/win 0.810 ( -1.8)

@@ -1,0 +1,63 @@
+STAGE 6, run5_window_kfactors_13TeV: K = 1 + Delta/C: S and T runs for gg and qqbar in W <= 350, p* <= 100 GeV, |G/G0|^2 for p* < 80 GeV
+
+C: output/run4_pp_singlet_octet_ll_13TeV/events, 10000000 events in 10 runs, sigma = 20.1335 pb
+S_gg_s2400                   seed 2400  sigma 0.121583 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+T_gg_freeze25_s2410          seed 2410  sigma 0.298489 pb  1000000 events; max W 350.00, max p* 99.99 GeV
+S_qq_s2420                   seed 2420  sigma 0.019502 pb  1000000 events; max W 350.00, max p* 99.97 GeV
+T_qq_freeze25_s2430          seed 2430  sigma 0.015421 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+T_gg_freeze10_s2450          seed 2450  sigma 0.29775 pb  1000000 events; max W 350.00, max p* 99.98 GeV
+T_gg_freeze50_s2460          seed 2460  sigma 0.299666 pb  1000000 events; max W 350.00, max p* 99.97 GeV
+T_gg_coulomb_as25_s2470      seed 2470  sigma 0.29753 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+T_qq_freeze10_s2480          seed 2480  sigma 0.01524 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+T_qq_freeze50_s2490          seed 2490  sigma 0.015652 pb  1000000 events; max W 350.00, max p* 99.99 GeV
+T_qq_coulomb_as25_s2500      seed 2500  sigma 0.015194 pb  1000000 events; max W 350.00, max p* 99.99 GeV
+
+results/6_tfactors/run5_window_kfactors_13TeV/kfactors_13TeV_W326-350_pstar100_octet-freeze25_ours.csv
+  window 326 <= W <= 350, p* < 100: total Delta = 0.17307 pb (K_total = 1.00860); Delta in m_ttbar_345-1600: 0.08244 pb
+  vs kfactors_13TeV_W326-350_pstar100_octet-freeze25.csv:
+    S_gg_s2400                   sigma ours 0.121583 pb, his 0.121704 pb (-0.10%)
+    T_gg_freeze25_s2410          sigma ours 0.298489 pb, his 0.299021 pb (-0.18%)
+    S_qq_s2420                   sigma ours 0.019502 pb, his 0.019495 pb (+0.04%)
+    T_qq_freeze25_s2430          sigma ours 0.015421 pb, his 0.015424 pb (-0.02%)
+    T_gg_freeze10_s2450          sigma ours 0.29775 pb, his 0.29821 pb (-0.15%)
+    T_gg_freeze50_s2460          sigma ours 0.299666 pb, his 0.299945 pb (-0.09%)
+    T_gg_coulomb_as25_s2470      sigma ours 0.29753 pb, his 0.297927 pb (-0.13%)
+    T_qq_freeze10_s2480          sigma ours 0.01524 pb, his 0.015237 pb (+0.02%)
+    T_qq_freeze50_s2490          sigma ours 0.015652 pb, his 0.015653 pb (-0.01%)
+    T_qq_coulomb_as25_s2500      sigma ours 0.015194 pb, his 0.015195 pb (-0.01%)
+    total Delta: ours 0.17307 pb, his 0.17361 pb (-0.3%)
+    column T, 60 bins with a toponium effect: pull mean -0.32, rms 1.28, max |pull| 4.30
+      y_ttbar_-2.6-2.6       bin  1: ours 1.00900 +- 0.00006, his 1.00941 +- 0.00007
+      abs_y_ttbar_0-2.5      bin  4: ours 1.00878 +- 0.00005, his 1.00895 +- 0.00005
+      abs_y_boost_0-2.5      bin  5: ours 1.00905 +- 0.00005, his 1.00922 +- 0.00006
+      abs_y_ttbar_0-2.4      bin  4: ours 1.00812 +- 0.00005, his 1.00829 +- 0.00006
+      abs_y_ttbar_0-2.4      bin  6: ours 1.00845 +- 0.00006, his 1.00829 +- 0.00006
+      abs_y_ttbar_0-2.4      bin  8: ours 1.00862 +- 0.00006, his 1.00881 +- 0.00007
+    column T_freeze10: max |K_ours - K_his| = 0.00037
+    column T_freeze50: max |K_ours - K_his| = 0.00049
+    column T_coulomb_as25: max |K_ours - K_his| = 0.00036
+
+results/6_tfactors/run5_window_kfactors_13TeV/kfactors_13TeV_W326-350_pstar50_octet-coulomb_as25_ours.csv
+  window 326 <= W <= 350, p* < 50: total Delta = 0.16199 pb (K_total = 1.00805); Delta in m_ttbar_345-1600: 0.07721 pb
+  vs kfactors_13TeV_W326-350_pstar50_octet-coulomb_as25.csv:
+    S_gg_s2400                   sigma ours 0.121583 pb, his 0.121704 pb (-0.10%)
+    T_gg_freeze25_s2410          sigma ours 0.298489 pb, his 0.299021 pb (-0.18%)
+    S_qq_s2420                   sigma ours 0.019502 pb, his 0.019495 pb (+0.04%)
+    T_qq_freeze25_s2430          sigma ours 0.015421 pb, his 0.015424 pb (-0.02%)
+    T_gg_freeze10_s2450          sigma ours 0.29775 pb, his 0.29821 pb (-0.15%)
+    T_gg_freeze50_s2460          sigma ours 0.299666 pb, his 0.299945 pb (-0.09%)
+    T_gg_coulomb_as25_s2470      sigma ours 0.29753 pb, his 0.297927 pb (-0.13%)
+    T_qq_freeze10_s2480          sigma ours 0.01524 pb, his 0.015237 pb (+0.02%)
+    T_qq_freeze50_s2490          sigma ours 0.015652 pb, his 0.015653 pb (-0.01%)
+    T_qq_coulomb_as25_s2500      sigma ours 0.015194 pb, his 0.015195 pb (-0.01%)
+    total Delta: ours 0.16199 pb, his 0.16253 pb (-0.3%)
+    column T, 53 bins with a toponium effect: pull mean -0.42, rms 1.04, max |pull| 2.34
+      abs_y_ttbar_0-2.5      bin  6: ours 1.00974 +- 0.00006, his 1.00995 +- 0.00007
+      y_ttbar_-2.6-2.6       bin  1: ours 1.00847 +- 0.00006, his 1.00867 +- 0.00007
+      abs_y_boost_0-2.5      bin  4: ours 1.00810 +- 0.00005, his 1.00824 +- 0.00005
+      abs_y_ttbar_0-2.4      bin 11: ours 1.00936 +- 0.00005, his 1.00951 +- 0.00005
+      abs_y_boost_0-2.5      bin  8: ours 1.01035 +- 0.00011, his 1.01069 +- 0.00013
+      abs_y_top_x_pT_top     bin 12: ours 1.01968 +- 0.00009, his 1.01995 +- 0.00011
+    column T_freeze25: max |K_ours - K_his| = 0.00039
+    column T_freeze10: max |K_ours - K_his| = 0.00036
+    column T_freeze50: max |K_ours - K_his| = 0.00044

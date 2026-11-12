@@ -1,0 +1,6 @@
+run7_mt170p00_13TeV: m_t = 170.0 GeV, Gamma_t = 1.4011 GeV
+singlet full JKT (alpha_s(mZ) = 0.12, two-loop, NLO bracket; shift 5.6784 GeV): green1_jkt_p80.dat (55 s); table vs solver median 7.9e-07, max 1.8e-04
+octet coulomb_as25: exact repulsive Coulomb, alpha_s = CT25(25 GeV) = 0.146880
+  E = -2, p =  5.0: |G1/G0|^2 68.4701, |G8/G0|^2 0.6893
+  E = +0, p = 10.0: |G1/G0|^2 3.6215, |G8/G0|^2 0.6610
+  E = +4, p = 30.0: |G1/G0|^2 4.9354, |G8/G0|^2 0.7345
