@@ -23,8 +23,16 @@ Eight Python files: one library and seven scripts you run.
 | `FuksTables` | Fuks's | their published tables (swData) and their `CALCGREEN` routine, used as-is |
 | `Events` | both | MadGraph events (from the caches) and the per-event weight \|G/G0\|^2 (Fuks 15) |
 
-Every class opens with an EQUATION MAP (paper equation -> method). `reference/` holds both
-PDFs and swData.
+Every class opens with an EQUATION MAP (paper equation -> method). `reference/` holds the papers
+and swData:
+
+| File | Paper |
+|---|---|
+| `BF01474740.pdf` | Jezabek, Kuhn, Teubner, Z. Phys. C 56 (1992) 653 (JKT): potential and solver |
+| `2411.18962v2.pdf` | Fuks, Hagiwara, Ma, Zheng, arXiv:2411.18962: matrix-element reweighting; `fuks2024/` = their swData tables |
+| `0804.1014v2.pdf` | Hagiwara, Sumino, Yokoya, arXiv:0804.1014 (HSY): colour-octet potential, factor -1/6 |
+| `2503.22382v2.pdf` | CMS, arXiv:2503.22382: threshold excess in dilepton tt |
+| `ATLAS-CONF-2025-008.pdf` | ATLAS-CONF-2025-008: threshold excess in dilepton tt |
 
 ## Run order (from inside this folder: `cd toponium_study`)
 
@@ -38,11 +46,36 @@ environment itself is `.venv/`). First time only: `uv sync`. Then run each stage
 | 1 | `1_validate_jkt.py` | our solver reproduces JKT's own Figs. 2-5 | ~30 s |
 | 2 | `2_identify_swdata.py` | which potential is in swData (answer: fixed-alpha Coulomb, alpha = 0.15) | ~3 min |
 | 3 | `3_fuks_fig1.py` | Fuks Fig. 1 from swData, ours alongside | ~10 s |
-| 4 | `4_fuks_figs2to5.py` | Fuks Figs. 2-5: same events re-weighted with Fuks's G and ours | ~40 s |
+| 4 | `4_fuks_figs2to5.py` | Fuks Figs. 2-5: same events re-weighted with Fuks's G and ours. `--sample fuksproc_ct25`: Fuks's exact process (all e/mu combinations, CT25NNLO; `--generate` makes the samples with MadGraph); `--octet`: the figures with the octet in the signal (`fuksproc_ct25_octet/`); the octet study with the Green's functions in MATRIX1 writes `fuks_octet_mg/` (samples LO, A1/A18 = Fuks's tables singlet / + octet, B1/B18 = ours) | ~40 s (MadGraph: ~40 min) |
 | 5 | `5_comparison_tables.py` | CSV tables (parameters, V vs Q^2, G on E-p grids; colour singlet) for comparing with an independent solver | ~1 min |
-| 6 | `6_tfactors.py` | toponium T-factors at 13 TeV for the requested binnings, T = sigma_with/sigma_without per bin: 10M LO events without + 10M with toponium (gg singlet x \|G/G0\|^2 in the matrix element, Fuks (16); our G with CT25NNLO's alpha_s(Q)). Runs: `run1_pp_fullcolour_13TeV` (pp, gg singlet+octet and qqbar), `run2_gg_singlet_13TeV` (gg, colour singlet only). `uv run --with six python 6_tfactors.py {setup,smoke,run,analyse} RUN`; results in `results/6_tfactors/RUN/` | ~4-5 h per run |
+| 6 | `6_tfactors.py` | toponium K-factors at 13 TeV in the ATLAS/CMS binnings: LO MadGraph with \|G1/G0\|^2 on the gg colour singlet and \|G8/G0\|^2 on the octet (gg and qqbar) in MATRIX1, our G with CT25NNLO's alpha_s(Q). `uv run --with six python 6_tfactors.py <cmd> RUN`; runs below | ~4-5 h per run |
 
-Each stage writes `results/<stage>/summary.txt` (+ figures). 
+Each stage writes `results/<stage>/summary.txt` (+ figures).
+
+### Stage 6 runs (`results/6_tfactors/RUN/`)
+
+| Run | What | Commands |
+|---|---|---|
+| `run1_pp_fullcolour_13TeV`, `run2_gg_singlet_13TeV`, `run3_pp_singlet_octet_13TeV`, `run4_pp_singlet_octet_ll_13TeV` | earlier full-sample runs (two independent 10M samples, p* <= 50): pp singlet only; gg singlet only; pp singlet + octet; same with all e/mu combinations. Runs 1-3: results only | `setup`/`smoke`/`run`/`analyse` |
+| `run5_window_kfactors_13TeV` | the window design (K = 1 + Delta/SM_full, Delta from samples generated only in W <= 350, p* <= 100; \|G/G0\|^2 for p* < 80; four octet potentials), with the seeds of M. Yanez Reyes's independent calculation, for the comparison | `table run5`, `setup`/`smoke`/`run`, `kfactors run5_window_kfactors_13TeV [CSV ...]` |
+| **`run6_final_kfactors_13TeV`** | **final K-factors**: own SM_full (10M), q q~ and q~ q window samples, full-phase-space check. Plain CSVs per binning in `kfactors_final/` | `setup`/`smoke`/`run`/`kfactors`/`export`/`arbiter` |
+| run 6, `octetcheck` | singlet only vs singlet + octet, one extra gg window sample + gg LO samples (`octet_check.txt`). First CMS m_tt bin [250, 400]: gg singlet events only (Fuks's sample) K = 1.229; gg all colours 1.061 (+ octet 1.055); pp 1.049; pp + octet 1.042 (final). The octet repulsion removes 13.5% of the singlet excess | `octetcheck run6_final_kfactors_13TeV` |
+| `run7_mt{170p00,171p25,172p50,173p75,175p00}_13TeV` | m_t scan: run 6's design at each m_t, Gamma_t scaled at LO (`top_width`), its own G0(E, p; m_t, Gamma_t) and window 2 m_t - 20 <= W <= 2 m_t + 4; singlet full JKT (two-loop alpha_s, alpha_s(mZ) = 0.12), octet coulomb_as25. Run on the MSU HPCC (`submit_mtscan.sh`, `slurm_*.sh`). K vs m_t: `run7_mtscan_summary.txt`; per-mass CSVs with a README: `toponium_kfactors_mtscan_13TeV/` (+ `.zip`) | per run: `setup`/`smoke`/`one RUN NAME`/`kfactors`/`export`; then `mtscan` |
+
+## Reproduction
+
+In the repo: all code, the summaries, K-factor CSVs and plots of every run, the stage-4 event caches
+(`results/4_fuks_figs2to5/_cache_*.npz`, `fuksproc_ct25/_cache_*.npz`, `fuks_octet_mg/_cache_*.npz`: per-event
+kinematics from MadGraph, the input of the stage-4 figures), and the Green's-function tables of the early runs.
+
+Not in the repo, regenerated by the code:
+- Green's-function tables on the p* <= 80 grid (`results/6_tfactors/*_p80.dat`, ~20 MB each, ~1 min each):
+  `6_tfactors.py table run5` (singlet + four octets), `octetcheck` (all-ones octet table), and `setup` of each
+  `run7_*` run (that mass's tables). Each run's `table_log.txt` records the checks against the solver.
+- The per-event K-factor samples (`../output/<run>/events/*.npz`, up to ~2 GB per run): `setup`, `smoke`, `run` (or
+  `one RUN NAME` per sample on the cluster) regenerate them with the seeds fixed in `RUNS` in `6_tfactors.py`;
+  `kfactors` and `export` then rebuild the CSVs. Needs MadGraph (this checkout), `six`, and the local LHAPDF
+  set `../lhapdf_data/` (CT25NNLO as id 99999000).
 
 ## Conventions
 
