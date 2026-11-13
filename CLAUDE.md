@@ -29,4 +29,5 @@ Run 7 (`run7_mt{170p00,171p25,172p50,173p75,175p00}_13TeV`) is the m_t scan: run
 and `/mnt/scratch/filippo3` may be touched there; the user runs every cluster command.
 
 Git: this folder is the public repo `AttackOnBreakfast/toponium-study`. `talk/` (PIKIMO 21 slides) is local only and
-gitignored, as are the regenerable `results/6_tfactors/*_p80.dat` tables (README "Reproduction" says how to rebuild them).
+gitignored, as are the regenerable `results/6_tfactors/*_p80.dat` tables, the `fuksproc_ct25/` and `fuks_octet_mg/`
+event caches (local copies are the only ones: keep them), smoke tests and previews (README "Reproduction").
