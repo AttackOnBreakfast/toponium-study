@@ -1,0 +1,36 @@
+STAGE 6, run6_final_kfactors_13TeV: K = 1 + Delta/SM_full (final): own SM_full (10 x 1M, full phase space); SM_win and topo_win runs for gg and qqbar in W <= 350, p* <= 100 GeV, |G/G0|^2 for p* < 80 GeV, four octets; check topo_full = 1M full-phase-space WITH (freeze25)
+
+SM_full: output/run6_final_kfactors_13TeV/events, 10000000 events in 10 runs, sigma = 20.1319 pb
+SM_win_gg_s7400              seed 7400  sigma 0.121636 pb  1000000 events; max W 350.00, max p* 99.99 GeV
+topo_win_gg_freeze25_s7410   seed 7410  sigma 0.298542 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+SM_win_qq_s7520              seed 7520  sigma 0.039005 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+topo_win_qq_freeze25_s7530   seed 7530  sigma 0.030845 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+topo_win_gg_freeze10_s7450   seed 7450  sigma 0.297531 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+topo_win_gg_freeze50_s7460   seed 7460  sigma 0.299513 pb  1000000 events; max W 350.00, max p* 99.97 GeV
+topo_win_gg_coulomb_as25_s7470 seed 7470  sigma 0.297526 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+topo_win_qq_freeze10_s7570   seed 7570  sigma 0.030472 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+topo_win_qq_freeze50_s7590   seed 7590  sigma 0.031302 pb  1000000 events; max W 350.00, max p* 100.00 GeV
+topo_win_qq_coulomb_as25_s7700 seed 7700  sigma 0.030381 pb  1000000 events; max W 350.00, max p* 99.99 GeV
+topo_full_ll_freeze25_s7601  seed 7601  sigma 20.3096 pb  1000000 events (check topo_full, full phase space)
+
+results/6_tfactors/run6_final_kfactors_13TeV/kfactors_13TeV_W326-350_pstar100_octet-freeze25_ours.csv
+  window 326 <= W <= 350, p* < 100: total Delta = 0.16890 pb (K_total = 1.00839); Delta in m_ttbar_345-1600: 0.07909 pb
+  window check (p* < 100 GeV; topo_full: topo_full_ll_freeze25_s7601, octet 'freeze25'):
+    (a) SM_full in window 0.14889 +- 0.00055 pb  vs  SM_win_gg + SM_win_qq 0.15303 +- 0.00012 pb: ratio 0.9729, pull -7.37
+    (b) topo_full in window 0.31423 +- 0.00253 pb  vs  topo_win_gg + topo_win_qq 0.32192 +- 0.00030 pb: ratio 0.9761, pull -3.02
+    (c) total Delta: full samples 0.16534 +- 0.00258 pb  vs  window runs 0.16890 +- 0.00032 pb: ratio 0.9790, pull -1.36
+        m_ttbar_250-3500   bin 0: K_full 1.04123 +- 0.00064  vs  K_window 1.04212 +- 0.00008 (pull -1.36)
+        m_ttbar_345-1600   bin 0: K_full 1.02070 +- 0.00051  vs  K_window 1.01994 +- 0.00006 (pull +1.47)
+        HT_ttbar_0-2000    bin 0: K_full 1.06215 +- 0.00098  vs  K_window 1.06360 +- 0.00012 (pull -1.47)
+        pT_top_0-500       bin 0: K_full 1.03842 +- 0.00060  vs  K_window 1.03935 +- 0.00007 (pull -1.52)
+
+results/6_tfactors/run6_final_kfactors_13TeV/kfactors_13TeV_W326-350_pstar50_octet-coulomb_as25_ours.csv
+  window 326 <= W <= 350, p* < 50: total Delta = 0.15790 pb (K_total = 1.00784); Delta in m_ttbar_345-1600: 0.07407 pb
+  window check (p* < 50 GeV; topo_full: topo_full_ll_freeze25_s7601, octet 'freeze25'):
+    (a) SM_full in window 0.13027 +- 0.00051 pb  vs  SM_win_gg + SM_win_qq 0.13267 +- 0.00012 pb: ratio 0.9819, pull -4.56
+    (b) topo_full in window 0.28511 +- 0.00241 pb  vs  topo_win_gg + topo_win_qq 0.29183 +- 0.00028 pb: ratio 0.9770, pull -2.78
+    (c) total Delta: full samples 0.15484 +- 0.00246 pb  vs  window runs 0.15917 +- 0.00031 pb: ratio 0.9728, pull -1.75
+        m_ttbar_250-3500   bin 0: K_full 1.03861 +- 0.00061  vs  K_window 1.03969 +- 0.00008 (pull -1.75)
+        m_ttbar_345-1600   bin 0: K_full 1.01934 +- 0.00050  vs  K_window 1.01886 +- 0.00006 (pull +0.97)
+        HT_ttbar_0-2000    bin 0: K_full 1.06059 +- 0.00097  vs  K_window 1.06224 +- 0.00012 (pull -1.70)
+        pT_top_0-500       bin 0: K_full 1.03645 +- 0.00058  vs  K_window 1.03747 +- 0.00007 (pull -1.75)

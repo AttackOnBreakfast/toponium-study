@@ -10,6 +10,7 @@ CONTENTS  (six classes, in this order)
   --- ours --------------------------------------------------------------------------
   JKTPotential  the potential of JKT Sec. 2 with the cut of Sec. 3           JKT (13)-(15), (19)-(20)
                 (JKTPotential.coulomb(alpha): fixed-coupling Coulomb instead)  Fuks (12), alpha fixed
+                (JKTPotential.octet_frozen: colour octet, alpha frozen below Q0) Fuks (12), C_F -> -1/6
   LSSolver      Lippmann-Schwinger equation solved as in JKT Sec. 3 -> G(E,p) JKT (16)-(18), (21)-(23)
   CoulombExact  exact analytic G for fixed-coupling Coulomb (ground truth)  Fuks below (12)
   --- Fuks's ------------------------------------------------------------------------
@@ -95,6 +96,7 @@ class JKTPotential:
     JKTPotential(alpha_mz=0.12)       the JKT potential, JKT's q_cut = 50 MeV
     JKTPotential(alpha_fn=f)          the same with alpha(Q^2) = f(Q^2) in (13) instead of (14)
     JKTPotential.coulomb(alpha=0.15)  fixed-coupling Coulomb, same interface (no cut, no shift)
+    JKTPotential.octet_frozen(f, Q0)  colour octet (+1/6), alpha = f(max(k^2, Q0^2)), same interface
     """
 
     KAPPA = C_F * 48 * np.pi ** 2 / 27   # (4/3)(48 pi^2/27) in JKT (15)
@@ -130,6 +132,27 @@ class JKTPotential:
         pot.V = lambda k2: -B / np.asarray(k2, dtype=float)
         pot.coulomb_B, pot.shift, pot.kinks, pot.q_cut = B, 0.0, (), None
         pot.label = f"Coulomb alpha={alpha}" + (" +NLO" if nlo_bracket else "")
+        return pot
+
+    @classmethod
+    def octet_frozen(cls, alpha_fn, Q0, nlo_bracket=True, nF=N_F):
+        """Fuks (12) / JKT (13) for the colour octet, alpha frozen below Q0:
+            V8(k^2) = +(1/6) 4 pi alpha(Q^2)/k^2 [1 + (31/3 - 10nF/9) alpha(Q^2)/4pi],  Q^2 = max(k^2, Q0^2),
+        colour factor C_F - C_A/2 = -1/6 = C_F x (-1/8) (Hagiwara-Sumino-Yokoya, arXiv:0804.1014, (9)-(11)):
+        repulsive, no bound states. Below Q0 it is exactly Coulomb, so no cut and no shift; the kink at Q0 is
+        a breakpoint of F."""
+
+        a1 = 31 / 3 - 10 * nF / 9
+
+        def V(k2):
+            k2 = np.asarray(k2, dtype=float)
+            a = alpha_fn(np.maximum(k2, Q0 ** 2))
+            return -4 * np.pi * C_F * (-1 / 8) * a / k2 * (1 + a1 * a / (4 * np.pi) if nlo_bracket else 1.0)
+
+        pot = cls.__new__(cls)
+        pot.V = V
+        pot.coulomb_B, pot.shift, pot.kinks, pot.q_cut = None, 0.0, (Q0,), None
+        pot.label = f"octet, alpha frozen below {Q0:g} GeV" + (" +NLO" if nlo_bracket else "")
         return pot
 
     # ------------------------------------------------------------------ JKT Sec. 2
@@ -590,7 +613,7 @@ class Events:
     """MadGraph events and the re-weighting of Fuks (15). Shared by Fuks's side and ours.
 
     EQUATION MAP
-      Fuks (14)  g g -> t tbar -> b l+ nu b~ l'- nu~; t = b e+ ve, tbar = b~ mu- vm~    read_lhe
+      Fuks (14)  g g -> t tbar -> b l+ nu b~ l'- nu~ (l, l' = e, mu); t = b l+ nu, tbar = b~ l- nu~  read_lhe
       Fuks (21)  p* = |p_t| in the t-tbar rest frame; Lorentz-invariant form
                  p* = sqrt(lambda(W^2, m_t1^2, m_t2^2)) / (2W); W, E = W - 2 m_t, m_tL/m_tH  kinematics
       Fuks (15)  |M|^2 -> |M|^2 |G(E,p*)/G0(E,p*)|^2 per event                       weights
@@ -612,10 +635,11 @@ class Events:
 
     @staticmethod
     def read_lhe(path):
-        """(weights [pb], 4-momenta of the t and tbar systems) from the final-state partons."""
+        """(weights [pb], 4-momenta of the t and tbar systems) from the final-state partons:
+        t = b + l+ + nu, tbar = b~ + l- + nu~, with l = e or mu on either side."""
 
         wts, pt, ptb = [], [], []
-        top_ids, anti_ids = {5, -11, 12}, {-5, 13, -14}
+        top_ids, anti_ids = {5, -11, -13, 12, 14}, {-5, 11, 13, -12, -14}
         with gzip.open(path, "rt") as f:
             in_ev, first = False, False
             for line in f:

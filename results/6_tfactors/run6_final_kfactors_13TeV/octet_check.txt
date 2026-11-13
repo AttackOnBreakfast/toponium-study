@@ -1,0 +1,63 @@
+STAGE 6, run6_final_kfactors_13TeV: octet check -- singlet only (Fuks (16)) vs singlet + octet (run 6), MadGraph window runs
+samples: SM_gg = SM_win_gg_s7400, T_gg_18 = topo_win_gg_freeze25_s7410, SM_qq = SM_win_qq_s7520, T_qq_18 = topo_win_qq_freeze25_s7530, T_gg_1 = topo_win_gg_none_s7850
+SM_full: 10000000 events, sigma = 20.1319 pb
+
+window 326 <= W <= 350, p* < 100 GeV  [pb]
+  SM_win gg 0.11586, qq 0.03717; topo gg singlet only 0.31103, gg singlet+octet 0.29291, qq octet 0.02902
+  Delta singlet only      +0.19517 +- 0.00034
+  Delta singlet + octet   +0.16890 +- 0.00032   (gg +0.17705, qq -0.00815)
+  octet effect            -0.02628 +- 0.00043  = -13.5% of the singlet-only excess
+  first CMS m_tt bin [250, 400]    K singlet only 1.0487 -> singlet + octet 1.0421   (Delta K -0.0066)
+  first ATLAS m_tt bin [325, 400]  K singlet only 1.0487 -> singlet + octet 1.0422   (Delta K -0.0066)
+  first H_T bin [0, 90]            K singlet only 1.0735 -> singlet + octet 1.0636   (Delta K -0.0099)
+
+window 326 <= W <= 350, p* < 50 GeV  [pb]
+  SM_win gg 0.09989, qq 0.03278; topo gg singlet only 0.28358, gg singlet+octet 0.26667, qq octet 0.02516
+  Delta singlet only      +0.18369 +- 0.00032
+  Delta singlet + octet   +0.15917 +- 0.00031   (gg +0.16678, qq -0.00762)
+  octet effect            -0.02453 +- 0.00041  = -13.4% of the singlet-only excess
+  first CMS m_tt bin [250, 400]    K singlet only 1.0458 -> singlet + octet 1.0397   (Delta K -0.0061)
+  first ATLAS m_tt bin [325, 400]  K singlet only 1.0459 -> singlet + octet 1.0397   (Delta K -0.0061)
+  first H_T bin [0, 90]            K singlet only 1.0719 -> singlet + octet 1.0622   (Delta K -0.0096)
+
+LO gg (full colour) 17.14 pb, gg colour singlet 3.8912 pb, pp (SM_full) 20.132 pb; singlet share of gg 0.227
+staircase, p* < 100 GeV: K = 1 + Delta/LO in the first bin (+- MC)
+  first CMS m_tt bin [250, 400]
+    gg -> tt, colour-singlet events only (Fuks et al.)   K = 1.2291 +- 0.0006   (LO 0.85196 pb)
+    gg -> tt, all colours, singlet modified              K = 1.0610 +- 0.0002   (LO 3.20074 pb)
+    gg -> tt, singlet + octet                            K = 1.0553 +- 0.0002   (LO 3.20074 pb)
+    pp -> tt, singlet modified                           K = 1.0487 +- 0.0001   (LO 4.00984 pb)
+    pp -> tt, singlet + octet (final)                    K = 1.0421 +- 0.0001   (LO 4.00984 pb)
+  first ATLAS m_tt bin [325, 400]
+    gg -> tt, colour-singlet events only (Fuks et al.)   K = 1.2294 +- 0.0006   (LO 0.85074 pb)
+    gg -> tt, all colours, singlet modified              K = 1.0611 +- 0.0002   (LO 3.19613 pb)
+    gg -> tt, singlet + octet                            K = 1.0554 +- 0.0002   (LO 3.19613 pb)
+    pp -> tt, singlet modified                           K = 1.0487 +- 0.0001   (LO 4.00424 pb)
+    pp -> tt, singlet + octet (final)                    K = 1.0422 +- 0.0001   (LO 4.00424 pb)
+  first H_T bin [0, 90]
+    gg -> tt, colour-singlet events only (Fuks et al.)   K = 1.3917 +- 0.0013   (LO 0.47516 pb)
+    gg -> tt, all colours, singlet modified              K = 1.0876 +- 0.0003   (LO 2.12403 pb)
+    gg -> tt, singlet + octet                            K = 1.0795 +- 0.0003   (LO 2.12403 pb)
+    pp -> tt, singlet modified                           K = 1.0735 +- 0.0001   (LO 2.53290 pb)
+    pp -> tt, singlet + octet (final)                    K = 1.0636 +- 0.0001   (LO 2.53290 pb)
+
+staircase, p* < 50 GeV: K = 1 + Delta/LO in the first bin (+- MC)
+  first CMS m_tt bin [250, 400]
+    gg -> tt, colour-singlet events only (Fuks et al.)   K = 1.2156 +- 0.0006   (LO 0.85196 pb)
+    gg -> tt, all colours, singlet modified              K = 1.0574 +- 0.0002   (LO 3.20074 pb)
+    gg -> tt, singlet + octet                            K = 1.0521 +- 0.0002   (LO 3.20074 pb)
+    pp -> tt, singlet modified                           K = 1.0458 +- 0.0001   (LO 4.00984 pb)
+    pp -> tt, singlet + octet (final)                    K = 1.0397 +- 0.0001   (LO 4.00984 pb)
+  first ATLAS m_tt bin [325, 400]
+    gg -> tt, colour-singlet events only (Fuks et al.)   K = 1.2159 +- 0.0006   (LO 0.85074 pb)
+    gg -> tt, all colours, singlet modified              K = 1.0575 +- 0.0002   (LO 3.19613 pb)
+    gg -> tt, singlet + octet                            K = 1.0522 +- 0.0002   (LO 3.19613 pb)
+    pp -> tt, singlet modified                           K = 1.0459 +- 0.0001   (LO 4.00424 pb)
+    pp -> tt, singlet + octet (final)                    K = 1.0397 +- 0.0001   (LO 4.00424 pb)
+  first H_T bin [0, 90]
+    gg -> tt, colour-singlet events only (Fuks et al.)   K = 1.3830 +- 0.0013   (LO 0.47516 pb)
+    gg -> tt, all colours, singlet modified              K = 1.0857 +- 0.0003   (LO 2.12403 pb)
+    gg -> tt, singlet + octet                            K = 1.0778 +- 0.0003   (LO 2.12403 pb)
+    pp -> tt, singlet modified                           K = 1.0719 +- 0.0001   (LO 2.53290 pb)
+    pp -> tt, singlet + octet (final)                    K = 1.0622 +- 0.0001   (LO 2.53290 pb)
+

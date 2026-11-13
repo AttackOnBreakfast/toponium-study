@@ -1,0 +1,50 @@
+Fuks's figures with the colour octet in the toponium signal: g g -> t tbar (Fuks's process), full colour
+events: five MadGraph samples with the Green's functions in MATRIX1 (Fuks's process, CT25NNLO, all e/mu,
+  default cuts, generated in 326 <= W <= 350 GeV, 500k each); in 330 <= W <= 350 GeV:
+  LO   seed 8401: 490567 events, sigma = 113.821 fb
+  A1   seed 8402: 495322 events, sigma = 327.834 fb
+  A18  seed 8403: 495285 events, sigma = 310.029 fb
+  B1   seed 8404: 494935 events, sigma = 296.210 fb
+  B18  seed 8405: 494908 events, sigma = 278.972 fb
+
+sigma(340 <= W <= 350, p* < 50) [fb], all gg (singlet + octet):
+   LO (no Green's function)                           91.440   (+0.0% vs LO)
+   Fuks: singlet x swData, octet LO                  295.233   (+222.9% vs LO)
+   A: Fuks + octet x |G8/G0|^2 (alpha 0.15)          278.394   (+204.5% vs LO)
+   ours: singlet x JKT (CT25 alpha_s), octet LO      263.538   (+188.2% vs LO)
+   B: ours + octet x |G8/G0|^2 (alpha 0.147)         246.898   (+170.0% vs LO)
+   octet change A: -8.3% of the singlet toponium excess
+   octet change B: -9.7% of the singlet toponium excess
+
+Fig. 1: |G8/G0|^2 (alpha 0.15) at E = -2, p =  5.0: 0.685
+Fig. 1: |G8/G0|^2 (alpha 0.15) at E = +0, p = 10.0: 0.662
+Fig. 1: |G8/G0|^2 (alpha 0.15) at E = +2, p = 25.0: 0.690
+
+Fig. 3, dsigma per 0.5 GeV bin [fb], p* < 50:
+   W = 335.25: LO: 0.347  Fuks: 0.727  A: 0.677  ours: 0.713  B: 0.7
+   W = 340.25: LO: 0.732  Fuks: 2.58  A: 2.37  ours: 2.78  B: 2.7
+   W = 344.75: LO: 2.55  Fuks: 18.3  A: 17.8  ours: 13.6  B: 13.2
+   W = 349.75: LO: 12.3  Fuks: 23.5  A: 21.7  ours: 20.6  B: 18.6
+   peak Fuks: singlet x swData, octet LO                 W = 349.75 GeV
+   peak A: Fuks + octet x |G8/G0|^2 (alpha 0.15)         W = 349.75 GeV
+   peak ours: singlet x JKT (CT25 alpha_s), octet LO     W = 349.75 GeV
+   peak B: ours + octet x |G8/G0|^2 (alpha 0.147)        W = 349.75 GeV
+
+Fig. 4, dsigma/sigma per 1 GeV bin, p* < 50, 330 <= W <= 350:
+   LO (no Green's function)                         peak 0.0463 at p* = 23.5; mean p* 25.81
+   Fuks: singlet x swData, octet LO                 peak 0.0417 at p* = 23.5; mean p* 24.83
+   A: Fuks + octet x |G8/G0|^2 (alpha 0.15)         peak 0.0412 at p* = 24.5; mean p* 24.82
+   ours: singlet x JKT (CT25 alpha_s), octet LO     peak 0.0405 at p* = 23.5; mean p* 25.32
+   B: ours + octet x |G8/G0|^2 (alpha 0.147)        peak 0.0405 at p* = 25.5; mean p* 25.34
+
+Fig. 5 (-4 <= E <= 0, p* <= 50), all gg: 1/sigma dsigma/dm peak [1/GeV] and mean mass [GeV]:
+   mtL LO (no Green's function)                         peak 0.138 @ 171.38   mean 167.33
+   mtL Fuks: singlet x swData, octet LO                 peak 0.185 @ 170.62   mean 168.29
+   mtL A: Fuks + octet x |G8/G0|^2 (alpha 0.15)         peak 0.188 @ 171.12   mean 168.29
+   mtL ours: singlet x JKT (CT25 alpha_s), octet LO     peak 0.184 @ 170.62   mean 168.12
+   mtL B: ours + octet x |G8/G0|^2 (alpha 0.147)        peak 0.187 @ 170.62   mean 168.12
+   mtH LO (no Green's function)                         peak 0.527 @ 172.88   mean 172.72
+   mtH Fuks: singlet x swData, octet LO                 peak 0.544 @ 172.88   mean 172.75
+   mtH A: Fuks + octet x |G8/G0|^2 (alpha 0.15)         peak 0.537 @ 172.88   mean 172.75
+   mtH ours: singlet x JKT (CT25 alpha_s), octet LO     peak 0.515 @ 172.88   mean 172.73
+   mtH B: ours + octet x |G8/G0|^2 (alpha 0.147)        peak 0.519 @ 172.88   mean 172.73
